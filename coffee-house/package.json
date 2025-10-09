@@ -1,0 +1,21 @@
+{
+  "name": "coffee-house",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/TimofeyNaryshkin/JSFEQS2025Q3#readme",
+  "bugs": {
+    "url": "https://github.com/TimofeyNaryshkin/JSFEQS2025Q3/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimofeyNaryshkin/JSFEQS2025Q3.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "style": "sass --watch coffee-house/sass/main.scss coffee-house/sass/style.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
