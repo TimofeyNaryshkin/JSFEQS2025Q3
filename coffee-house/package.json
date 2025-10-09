@@ -15,7 +15,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "style": "sass --watch coffee-house/sass/main.scss coffee-house/sass/style.css",
+    "style": "sass --watch sass/main.scss sass/style.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

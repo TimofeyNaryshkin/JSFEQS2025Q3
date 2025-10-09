@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../sass/style.css" />
     <title>Resource</title>
   </head>
   <body>
@@ -11,14 +12,14 @@
         <div class="flex-container">
           <div class="logo"></div>
           <nav class="nav">
-            <ul>
-              <li><a href="#favorite">Favorite coffee</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#app">Mobile app</a></li>
-              <li><a href="#contacts">Contact us</a></li>
+            <ul class="flex-container">
+              <li><a class="action" href="#favorite">Favorite coffee</a></li>
+              <li><a class="action" href="#about">About</a></li>
+              <li><a class="action" href="#app">Mobile app</a></li>
+              <li><a class="action" href="#contacts">Contact us</a></li>
             </ul>
           </nav>
-          <button class="button button_menu">
+          <button class="button button_menu action">
             Menu
             <div class="button_menu__icon"></div>
           </button>
