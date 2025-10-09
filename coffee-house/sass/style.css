@@ -89,4 +89,22 @@ h3 {
   width: 100px;
 }
 
+.wrapper {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 40px;
+  background-color: #e1d4c9;
+}
+@media (max-width: 813px) {
+  .wrapper {
+    max-width: 813px;
+  }
+}
+@media (max-width: 380px) {
+  .wrapper {
+    max-width: 380px;
+    padding: 0 16px;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

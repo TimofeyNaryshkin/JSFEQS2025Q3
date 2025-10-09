@@ -1,0 +1,13 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: $content-width;
+  padding: 0 40px;
+  background-color: $color-background;
+  @include media-tablet {
+    max-width: $tablet-width;
+  }
+  @include media-mobile {
+    max-width: $mobile-width;
+    padding: 0 16px;
+  }
+}
