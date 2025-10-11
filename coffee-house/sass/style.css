@@ -1,6 +1,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 10px;
+  background-color: #e1d4c9;
   scrollbar-gutter: stable;
 }
 html * {
@@ -35,6 +36,7 @@ li {
 .flex-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 h1 {
@@ -89,6 +91,37 @@ h3 {
   width: 100px;
 }
 
+.button_menu {
+  display: block;
+  position: relative;
+  display: flex;
+  gap: 8px;
+  padding-bottom: 4px;
+}
+
+.button_menu::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  max-width: 100%;
+  width: 0%;
+  height: 2px;
+  background-color: #403f3d;
+  transition: 0.3s ease-out;
+}
+
+.button_menu:hover::after {
+  width: 100%;
+}
+
+.button_menu__icon {
+  background-image: url(../assets/icons/coffee-cup.svg);
+  height: 20px;
+  width: 20px;
+}
+
 .wrapper {
   margin: 0 auto;
   max-width: 1440px;
@@ -105,6 +138,14 @@ h3 {
     max-width: 380px;
     padding: 0 16px;
   }
+}
+
+.header {
+  margin: 20px 0;
+}
+
+.nav .flex-container {
+  gap: 40px;
 }
 
 /*# sourceMappingURL=style.css.map */

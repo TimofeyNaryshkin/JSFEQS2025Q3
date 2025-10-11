@@ -1,6 +1,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 10px;
+  background-color: $color-background;
   scrollbar-gutter: stable;
   * {
     padding: 0;
@@ -35,6 +36,7 @@ li {
 .flex-container {
   display: flex;
   justify-content: space-between;
+  align-items: center
 }
 
 h1 {
