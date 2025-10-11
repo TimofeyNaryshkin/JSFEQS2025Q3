@@ -1,0 +1,59 @@
+.slider {
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.slider__content {
+  display: flex;
+  max-width: 480px;
+  overflow: hidden;
+}
+
+.slider__content__card {
+  min-width: 480px;
+  .medium {
+    margin: 16px 0;
+  }
+}
+
+.slider__content__card__img {
+  height: 480px;
+  background-size: contain;
+}
+
+.img_1 {
+  background-image: url(../assets/img/coffee-slider-1.png);
+}
+
+.img_2 {
+  background-image: url(../assets/img/coffee-slider-2.png);
+}
+
+.img_3 {
+  background-image: url(../assets/img/coffee-slider-3.png);
+}
+
+.slider__control {
+  width: 60px;
+  height: 60px;
+  background-image: url(../assets/icons/arrow-right.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid $color-border-second;
+  border-radius: 50%;
+}
+
+@media (hover: hover) {
+  .slider__control:hover {
+    cursor: pointer;
+    background-color: $color-background-container;
+    background-image: url(../assets/icons/arrow-right-light.svg);
+  }
+}
+
+.slider__control_prev {
+  transform: rotate(180deg);
+}
