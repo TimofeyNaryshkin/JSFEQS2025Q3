@@ -305,4 +305,49 @@ h3 {
   animation-play-state: paused;
 }
 
+.about {
+  margin: 100px 0;
+}
+
+.about__flex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-height: 1060px;
+  margin-top: 40px;
+}
+
+.about__flex__img {
+  width: 660px;
+  background-size: 110%;
+  background-position: center;
+  border-radius: 20px;
+}
+
+@media (hover: hover) {
+  .about__flex__img:hover {
+    background-size: 100%;
+  }
+}
+.about__flex__img_1 {
+  background-image: url(../assets/img/about-1.png);
+  height: 590px;
+}
+
+.about__flex__img_2 {
+  background-image: url(../assets/img/about-3.png);
+  height: 430px;
+}
+
+.about__flex__img_3 {
+  background-image: url(../assets/img/about-2.png);
+  height: 430px;
+}
+
+.about__flex__img_4 {
+  background-image: url(../assets/img/about-4.png);
+  height: 590px;
+}
+
 /*# sourceMappingURL=style.css.map */

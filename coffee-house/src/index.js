@@ -113,13 +113,11 @@ btnNext.addEventListener("click", () => {
 slider.addEventListener("mouseover", () => {
   pauseTimer();
   pauseProgressBar();
-  console.log("paused");
 });
 
 slider.addEventListener("mouseout", () => {
   resumeTimer();
   resumeProgressBar();
-  console.log("resumed");
 });
 
 updateSlider();
