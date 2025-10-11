@@ -60,7 +60,11 @@ h3 {
 }
 
 .accent {
-  font-style: italic;
+  color: $color-text-accent;
+}
+
+.light {
+  color: $color-text-second;
 }
 
 .action {

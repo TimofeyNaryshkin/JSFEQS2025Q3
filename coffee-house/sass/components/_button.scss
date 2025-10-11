@@ -1,3 +1,10 @@
+.button {
+  background-color: $color-background;
+  max-width: 200px;
+  border-radius: 100px;
+  padding: 20px 0;
+}
+
 .button_menu {
   display: block;
   position: relative;
@@ -7,7 +14,7 @@
 }
 
 .button_menu::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -19,12 +26,31 @@
   transition: 0.3s ease-out;
 }
 
-.button_menu:hover::after {
-  width: 100%;
-}
-
 .button_menu__icon {
   background-image: url(../assets/icons/coffee-cup.svg);
   height: 20px;
   width: 20px;
+}
+
+.button_hero {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  .button_menu__icon {
+    width: 0;
+    opacity: 0;
+    transition: 0.3s ease-out;
+  }
+}
+
+@media (hover: hover) {
+  .button_menu:hover::after {
+    width: 100%;
+  }
+  .button_hero:hover {
+    .button_menu__icon {
+      width: 20px;
+      opacity: 1;
+    }
+  }
 }
