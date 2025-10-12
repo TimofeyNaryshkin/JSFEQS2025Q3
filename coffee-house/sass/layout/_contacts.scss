@@ -70,3 +70,19 @@
     }
   }
 }
+
+@include media-desktop {
+  .contacts-background {
+    padding: 100px 60px;
+    flex-direction: column;
+    gap: 100px;
+    align-items: flex-start;
+  }
+}
+
+@include media-mobile {
+  .contacts-background  {
+    padding: 60px 16px;
+    gap: 40px;
+  }
+}

@@ -98,7 +98,7 @@ h3 {
 
 .action {
   font-size: 1.6rem;
-  line-height: 150%;
+  line-height: 175%;
   font-weight: 600;
 }
 
@@ -715,6 +715,20 @@ z .paused {
 @media (hover: hover) {
   .cta .action:hover::after {
     width: 100%;
+  }
+}
+@media (max-width: 1200px) {
+  .contacts-background {
+    padding: 100px 60px;
+    flex-direction: column;
+    gap: 100px;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 380px) {
+  .contacts-background {
+    padding: 60px 16px;
+    gap: 40px;
   }
 }
 
