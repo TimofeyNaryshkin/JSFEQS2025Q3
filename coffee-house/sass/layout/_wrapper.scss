@@ -6,8 +6,10 @@
   @include media-tablet {
     max-width: $tablet-width;
   }
+  @include media-tablet-small {
+    padding: 0 16px;
+  }
   @include media-mobile {
     max-width: $mobile-width;
-    padding: 0 16px;
   }
 }

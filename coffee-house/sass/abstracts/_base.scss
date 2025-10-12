@@ -36,11 +36,14 @@ li {
 .flex-container {
   display: flex;
   justify-content: space-between;
-  align-items: center
+  align-items: center;
 }
 
 h1 {
   @include font(7.2rem, 105%);
+  @include media-tablet-small {
+    @include font(4.2rem, 115%);
+  }
 }
 
 h2 {
@@ -53,6 +56,9 @@ h3 {
 
 .medium {
   @include font(1.6rem, 150%, 400);
+  @include media-tablet-small {
+    line-height: 180%;
+  }
 }
 
 .caption {
