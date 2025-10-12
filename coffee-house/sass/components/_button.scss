@@ -81,6 +81,28 @@
     }
   }
 
+  .button_social {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid $color-border;
+  }
+
+  .icon_x {
+    background-image: url(../assets/icons/twitter.svg);
+  }
+
+  .icon_inst {
+    background-image: url(../assets/icons/instagram.svg);
+  }
+
+  .icon_fb {
+    background-image: url(../assets/icons/facebook.svg);
+  }
+
   .button_app:hover {
     background-color: $color-background-container;
     p {
@@ -93,5 +115,22 @@
     .icon_google {
       background-image: url(../assets/icons/google-light.svg);
     }
+  }
+
+  .button_social:hover {
+    background-color: $color-background;
+    fill: $color-text;
+  }
+
+  .icon_x:hover {
+    background-image: url(../assets/icons/twitter-dark.svg);
+  }
+
+  .icon_inst:hover {
+    background-image: url(../assets/icons/instagram-dark.svg);
+  }
+
+  .icon_fb:hover {
+    background-image: url(../assets/icons/facebook-dark.svg);
   }
 }
