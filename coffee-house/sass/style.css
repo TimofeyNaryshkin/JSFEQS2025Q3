@@ -135,6 +135,14 @@ h3 {
   }
 }
 
+.button_menu_inactive {
+  pointer-events: none;
+}
+
+.button_menu.button_menu_inactive::after {
+  width: 100%;
+}
+
 .button_menu::after {
   content: "";
   position: absolute;
@@ -252,6 +260,67 @@ h3 {
 .button_burger_opened .line_2 {
   transform: rotate(-45deg);
   top: calc(50% - 1px);
+}
+
+.button_category {
+  display: flex;
+  gap: 8px;
+  border: 1px solid #c1b6ad;
+  padding: 8px 16px 8px 8px;
+  height: 46px;
+}
+
+.button_category_active {
+  background-color: #665f55;
+  color: #e1d4c9;
+}
+.button_category_active .button_category__icon {
+  background-color: #e1d4c9;
+}
+
+.button_category__icon {
+  width: 30px;
+  height: 30px;
+  background-color: #c1b6ad;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.button_load-more {
+  background-image: url(../assets/icons/refresh.svg);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: 1px solid #665f55;
+  margin: 40px auto 0;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loading {
+  animation: rotate 1s linear;
+}
+
+.button_category__icon_1 {
+  background-image: url(../assets/img/coffee.png);
+}
+
+.button_category__icon_2 {
+  background-image: url(../assets/img/tea.png);
+}
+
+.button_category__icon_3 {
+  background-image: url(../assets/img/dessert.png);
 }
 
 @media (hover: hover) {
@@ -730,6 +799,153 @@ z .paused {
     padding: 60px 16px;
     gap: 40px;
   }
+}
+.menu {
+  text-align: center;
+  margin-bottom: 100px;
+}
+.menu h2 {
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.menu__categories {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+@media (max-width: 380px) {
+  .menu__categories {
+    gap: 8px;
+  }
+}
+
+.menu__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+@media (max-width: 813px) {
+  .menu__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 380px) {
+  .menu__items {
+    grid-template-columns: 1fr;
+  }
+}
+
+.menu__item {
+  cursor: pointer;
+  width: 310px;
+  text-align: start;
+  border: 1px solid #c1b6ad;
+  border-radius: 40px;
+}
+
+.menu__item__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 20px;
+}
+.menu__item__text .medium {
+  margin: 12px 0;
+}
+
+.menu__item__img {
+  height: 310px;
+  border-radius: 40px;
+  background-size: 110%;
+  background-position: center;
+}
+
+@media (hover: hover) {
+  .menu__item:hover .menu__item__img {
+    background-size: 100%;
+  }
+}
+.coffee_1 {
+  background-image: url(../assets/img/coffee-1.png);
+}
+
+.coffee_2 {
+  background-image: url(../assets/img/coffee-2.png);
+}
+
+.coffee_3 {
+  background-image: url(../assets/img/coffee-3.png);
+}
+
+.coffee_4 {
+  background-image: url(../assets/img/coffee-4.png);
+}
+
+.coffee_5 {
+  background-image: url(../assets/img/coffee-5.png);
+}
+
+.coffee_6 {
+  background-image: url(../assets/img/coffee-6.png);
+}
+
+.coffee_7 {
+  background-image: url(../assets/img/coffee-7.png);
+}
+
+.coffee_8 {
+  background-image: url(../assets/img/coffee-8.png);
+}
+
+.tea_1 {
+  background-image: url(../assets/img/tea-1.png);
+}
+
+.tea_2 {
+  background-image: url(../assets/img/tea-2.png);
+}
+
+.tea_3 {
+  background-image: url(../assets/img/tea-3.png);
+}
+
+.tea_4 {
+  background-image: url(../assets/img/tea-4.png);
+}
+
+.dessert_1 {
+  background-image: url(../assets/img/dessert-1.png);
+}
+
+.dessert_2 {
+  background-image: url(../assets/img/dessert-2.png);
+}
+
+.dessert_3 {
+  background-image: url(../assets/img/dessert-3.png);
+}
+
+.dessert_4 {
+  background-image: url(../assets/img/dessert-4.png);
+}
+
+.dessert_5 {
+  background-image: url(../assets/img/dessert-5.png);
+}
+
+.dessert_6 {
+  background-image: url(../assets/img/dessert-6.png);
+}
+
+.dessert_7 {
+  background-image: url(../assets/img/dessert-7.png);
+}
+
+.dessert_8 {
+  background-image: url(../assets/img/dessert-8.png);
 }
 
 /*# sourceMappingURL=style.css.map */

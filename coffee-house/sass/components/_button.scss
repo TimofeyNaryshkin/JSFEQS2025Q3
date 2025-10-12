@@ -17,6 +17,14 @@
   }
 }
 
+.button_menu_inactive {
+  pointer-events: none;
+}
+
+.button_menu.button_menu_inactive::after {
+  width: 100%;
+}
+
 .button_menu::after {
   content: "";
   position: absolute;
@@ -135,6 +143,68 @@
     transform: rotate(-45deg);
     top: calc(50% - 1px);
   }
+}
+
+.button_category {
+  display: flex;
+  gap: 8px;
+  border: 1px solid $color-border;
+  padding: 8px 16px 8px 8px;
+  height: 46px;
+}
+
+.button_category_active {
+  background-color: $color-background-container;
+  color: $color-text-second;
+  .button_category__icon {
+    background-color: $color-background;
+  }
+}
+
+.button_category__icon {
+  width: 30px;
+  height: 30px;
+  background-color: $color-border;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.button_load-more {
+  background-image: url(../assets/icons/refresh.svg);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: 1px solid $color-border-second;
+  margin: 40px auto 0;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} 
+
+.loading {
+  animation: rotate 1s linear;
+}
+
+.button_category__icon_1 {
+  background-image: url(../assets/img/coffee.png);
+}
+
+.button_category__icon_2 {
+  background-image: url(../assets/img/tea.png);
+}
+
+.button_category__icon_3{
+  background-image: url(../assets/img/dessert.png);
 }
 
 @media (hover: hover) {
