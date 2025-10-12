@@ -24,6 +24,7 @@ function fillProgressBar() {
   progressBars.forEach((bar, index) => {
     if (index === currentIndex) {
       bar.classList.add("active");
+      bar.classList.remove("paused");
     } else {
       bar.classList.remove("active");
     }
@@ -116,6 +117,36 @@ slider.addEventListener("mouseover", () => {
 });
 
 slider.addEventListener("mouseout", () => {
+  resumeTimer();
+  resumeProgressBar();
+});
+
+let startX = 0;
+
+slider.addEventListener("touchstart", (e) => {
+  pauseTimer();
+  pauseProgressBar();
+  startX = e.touches[0].clientX;
+});
+
+slider.addEventListener("touchmove", (e) => {
+  const moveX = e.touches[0].clientX;
+  const diffX = moveX - startX;
+  sliderCards.style.transform = `translateX(${
+    -currentIndex * cards[0].offsetWidth + diffX
+  }px)`;
+});
+
+slider.addEventListener("touchend", (e) => {
+  const endX = e.changedTouches[0].clientX;
+  const diffX = endX - startX;
+  if (diffX > 50) {
+    moveLeft();
+  } else if (diffX < -50) {
+    moveRight();
+  } else {
+    updateSlider();
+  }
   resumeTimer();
   resumeProgressBar();
 });
