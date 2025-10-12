@@ -3,6 +3,7 @@ html {
   font-size: 10px;
   background-color: #e1d4c9;
   scrollbar-gutter: stable;
+  overflow-x: hidden;
 }
 html * {
   padding: 0;
@@ -16,7 +17,7 @@ body {
   font-family: "Inter", sans-serif;
   margin: 0;
 }
-body.noscroll {
+body.no-scroll {
   overflow: hidden;
 }
 
@@ -108,6 +109,7 @@ h3 {
 }
 
 .button {
+  cursor: pointer;
   box-sizing: border-box;
   background-color: #e1d4c9;
   max-width: 200px;
@@ -120,7 +122,11 @@ h3 {
   position: relative;
   display: flex;
   gap: 8px;
-  padding-bottom: 4px;
+}
+@media (max-width: 768px) {
+  .button_menu {
+    display: none;
+  }
 }
 
 .button_menu::after {
@@ -178,6 +184,68 @@ h3 {
   background-image: url(../assets/icons/google.svg);
 }
 
+.button_social {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #c1b6ad;
+}
+
+.icon_x {
+  background-image: url(../assets/icons/twitter.svg);
+}
+
+.icon_inst {
+  background-image: url(../assets/icons/instagram.svg);
+}
+
+.icon_fb {
+  background-image: url(../assets/icons/facebook.svg);
+}
+
+.button_burger {
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #665f55;
+}
+@media (max-width: 768px) {
+  .button_burger {
+    display: block;
+  }
+}
+
+.button_burger__line {
+  position: absolute;
+  left: calc(50% - 8px);
+  width: 16px;
+  height: 2px;
+  background-color: #403f3d;
+  border-radius: 20px;
+}
+
+.line_1 {
+  top: calc(50% - 4px);
+}
+
+.line_2 {
+  top: calc(50% + 4px);
+}
+
+.button_burger_opened .line_1 {
+  transform: rotate(45deg);
+  top: calc(50% - 1px);
+}
+.button_burger_opened .line_2 {
+  transform: rotate(-45deg);
+  top: calc(50% - 1px);
+}
+
 @media (hover: hover) {
   .button_menu:hover::after {
     width: 100%;
@@ -185,24 +253,6 @@ h3 {
   .button_hero:hover .button_menu__icon {
     width: 20px;
     opacity: 1;
-  }
-  .button_social {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: transparent;
-    background-position: center;
-    background-repeat: no-repeat;
-    border: 1px solid #c1b6ad;
-  }
-  .icon_x {
-    background-image: url(../assets/icons/twitter.svg);
-  }
-  .icon_inst {
-    background-image: url(../assets/icons/instagram.svg);
-  }
-  .icon_fb {
-    background-image: url(../assets/icons/facebook.svg);
   }
   .button_app:hover {
     background-color: #665f55;
@@ -230,6 +280,46 @@ h3 {
     background-image: url(../assets/icons/facebook-dark.svg);
   }
 }
+.burger-menu {
+  position: absolute;
+  top: 80px;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: #e1d4c9;
+  padding: 60px 40px;
+}
+@media (max-width: 380px) {
+  .burger-menu {
+    padding: 60px 16px;
+  }
+}
+.burger-menu .flex-container {
+  flex-direction: column;
+  gap: 60px;
+}
+.burger-menu .action {
+  font-size: 3.2rem;
+  line-height: 125%;
+  font-weight: 600;
+}
+.burger-menu .button_menu {
+  display: flex;
+  justify-content: center;
+  max-width: max-content;
+  gap: 16px;
+  margin: 100px auto 0;
+}
+.burger-menu .button_menu .button_menu__icon {
+  background-image: url(../assets/icons/coffee-cup-burger.svg);
+  width: 40px;
+  height: 40px;
+}
+
+.burger-menu_opened {
+  transform: translateX(-100%);
+}
+
 .wrapper {
   margin: 0 auto;
   max-width: 1440px;
@@ -258,6 +348,11 @@ h3 {
 
 .nav .flex-container {
   gap: 40px;
+}
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
 }
 
 .hero {
