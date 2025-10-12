@@ -64,7 +64,7 @@ h3 {
 }
 
 .caption {
-  font-size: 1.6rem;
+  font-size: 1rem;
   line-height: 140%;
   font-weight: 600;
 }
@@ -96,6 +96,7 @@ h3 {
 }
 
 .button {
+  box-sizing: border-box;
   background-color: #e1d4c9;
   max-width: 200px;
   border-radius: 100px;
@@ -140,6 +141,31 @@ h3 {
   transition: 0.3s ease-out;
 }
 
+.button_app.flex-container {
+  gap: 8px;
+}
+
+.button_app {
+  padding: 12px 43px 12px 20px;
+  outline: 2px solid #665f55;
+}
+
+.button_app__icon {
+  width: 36px;
+  height: 36px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.icon_apple {
+  background-image: url(../assets/icons/apple.svg);
+}
+
+.icon_google {
+  background-image: url(../assets/icons/google.svg);
+}
+
 @media (hover: hover) {
   .button_menu:hover::after {
     width: 100%;
@@ -147,6 +173,18 @@ h3 {
   .button_hero:hover .button_menu__icon {
     width: 20px;
     opacity: 1;
+  }
+  .button_app:hover {
+    background-color: #665f55;
+  }
+  .button_app:hover p {
+    color: #e1d4c9;
+  }
+  .button_app:hover .icon_apple {
+    background-image: url(../assets/icons/apple-light.svg);
+  }
+  .button_app:hover .icon_google {
+    background-image: url(../assets/icons/google-light.svg);
   }
 }
 .wrapper {
@@ -319,8 +357,9 @@ h3 {
 }
 
 .about__flex__img {
-  width: 660px;
+  max-width: 660px;
   background-size: 110%;
+  background-repeat: no-repeat;
   background-position: center;
   border-radius: 20px;
 }
@@ -348,6 +387,32 @@ h3 {
 .about__flex__img_4 {
   background-image: url(../assets/img/about-4.png);
   height: 590px;
+}
+
+.mobile-app {
+  margin-bottom: 100px;
+}
+
+.button_app__text .caption {
+  margin-bottom: 2px;
+}
+
+.mobile-app__buttons {
+  max-width: 420px;
+}
+
+.mobile-app__text {
+  max-width: 630px;
+  padding-right: 15px;
+}
+.mobile-app__text .medium {
+  margin: 40px 0;
+}
+
+.mobile-app__img {
+  background-image: url(../assets/img/mobile-screens.png);
+  width: 630px;
+  height: 630px;
 }
 
 /*# sourceMappingURL=style.css.map */

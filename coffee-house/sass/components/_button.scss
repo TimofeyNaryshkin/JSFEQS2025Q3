@@ -1,4 +1,5 @@
 .button {
+  box-sizing: border-box;
   background-color: $color-background;
   max-width: 200px;
   border-radius: 100px;
@@ -43,14 +44,54 @@
   }
 }
 
+.button_app.flex-container {
+  gap: 8px;
+}
+
+.button_app {
+  padding: 12px 43px 12px 20px;
+  outline: 2px solid $color-border-second;
+}
+
+.button_app__icon {
+  width: 36px;
+  height: 36px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.icon_apple {
+  background-image: url(../assets/icons/apple.svg);
+}
+
+.icon_google {
+  background-image: url(../assets/icons/google.svg);
+}
+
 @media (hover: hover) {
   .button_menu:hover::after {
     width: 100%;
   }
+
   .button_hero:hover {
     .button_menu__icon {
       width: 20px;
       opacity: 1;
+    }
+  }
+
+  .button_app:hover {
+    background-color: $color-background-container;
+    p {
+      color: $color-text-second;
+    }
+    .icon_apple {
+      background-image: url(../assets/icons/apple-light.svg);
+    }
+
+    .icon_google {
+      background-image: url(../assets/icons/google-light.svg);
     }
   }
 }

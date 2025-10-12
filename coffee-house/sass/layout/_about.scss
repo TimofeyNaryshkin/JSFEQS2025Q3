@@ -12,8 +12,9 @@
 }
 
 .about__flex__img {
-  width: 660px;
+  max-width: 660px;
   background-size: 110%;
+  background-repeat: no-repeat;
   background-position: center;
   border-radius: 20px;
 }
