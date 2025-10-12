@@ -9,6 +9,10 @@
 .slider__content {
   max-width: 480px;
   overflow: hidden;
+  margin: 0 auto;
+  @include media-slider-controls-hide {
+    max-width: 348px;
+  }
 }
 
 .slider__content__cards {
@@ -17,6 +21,9 @@
 
 .slider__content__card {
   min-width: 480px;
+  @include media-slider-controls-hide {
+    min-width: 348px;
+  }
   .medium {
     margin: 16px 0;
   }
@@ -25,6 +32,9 @@
 .slider__content__card__img {
   height: 480px;
   background-size: contain;
+  @include media-slider-controls-hide {
+    height: 348px;
+  }
 }
 
 .img_1 {
@@ -47,6 +57,9 @@
   background-repeat: no-repeat;
   border: 1px solid $color-border-second;
   border-radius: 50%;
+  @include media-slider-controls-hide {
+    display: none;
+  }
 }
 
 @media (hover: hover) {
@@ -94,7 +107,6 @@
 .active {
   animation: fillBar 4s linear forwards;
 }
-
-.paused {
+z .paused {
   animation-play-state: paused;
 }

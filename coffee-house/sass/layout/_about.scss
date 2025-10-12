@@ -44,3 +44,31 @@
   background-image: url(../assets/img/about-4.png);
   height: 590px;
 }
+
+@include media-desktop {
+  .about__flex__img_2 {
+    display: none;
+  }
+
+  .about__flex__img_3 {
+    display: none;
+  }
+
+  .about__flex__img {
+    max-width: 688px;
+    width: 100%;
+  }
+
+  .about__flex {
+    flex-wrap: nowrap;
+    align-items: center;
+    max-height: unset;
+  }
+}
+
+@include media-slider-controls-hide {
+  .about__flex__img {
+    max-width: 348px;
+    background-size: 210%;
+  }
+}

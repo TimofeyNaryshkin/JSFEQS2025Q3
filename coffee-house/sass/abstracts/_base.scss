@@ -3,7 +3,6 @@ html {
   font-size: 10px;
   background-color: $color-background;
   scrollbar-gutter: stable;
-  overflow-x: hidden;
   * {
     padding: 0;
     margin: 0;
@@ -49,6 +48,9 @@ h1 {
 
 h2 {
   @include font(6rem, 125%);
+  @include media-tablet-small {
+    @include font(3.2rem, 125%);
+  }
 }
 
 h3 {
