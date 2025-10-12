@@ -22,6 +22,35 @@
 
 .mobile-app__img {
   background-image: url(../assets/img/mobile-screens.png);
-  width: 630px;
+  min-width: 630px;
   height: 630px;
+}
+
+@include media-desktop {
+  .flex-container_app {
+    flex-direction: column;
+    gap: 100px;
+  }
+
+  .mobile-app__text {
+    padding: 0;
+  }
+}
+
+@include media-slider-controls-hide {
+  .flex-container_app {
+    gap: 40px;
+  }
+
+  .mobile-app__img {
+    min-width: 348px;
+    height: 348px;
+    background-size: contain;
+  }
+
+  .mobile-app__buttons {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
 }

@@ -49,11 +49,13 @@
 
 .button_app.flex-container {
   gap: 8px;
+  justify-content: flex-start;
 }
 
 .button_app {
   padding: 12px 43px 12px 20px;
   outline: 2px solid $color-border-second;
+  width: 200px;
 }
 
 .button_app__icon {
