@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="./assets/icons/coffee-cup.svg">
+    <link rel="stylesheet" href="sass/style.css" />
+    <title>Resource</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="wrapper">
+        <div class="flex-container">
+          <a href="./Home.html" class="logo"></a>
+          <nav class="nav">
+            <ul class="flex-container">
+              <li><a class="action" href="#favorite">Favorite coffee</a></li>
+              <li><a class="action" href="#about">About</a></li>
+              <li><a class="action" href="#app">Mobile app</a></li>
+              <li><a class="action" href="#contacts">Contact us</a></li>
+            </ul>
+          </nav>
+          <a href="./Menu.html" class="button_menu action">
+            Menu
+            <div class="button_menu__icon"></div>
+          </a>
+          <button class="button button_burger">
+            <span class="button_burger__line line_1"></span
+            ><span class="button_burger__line line_2"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="wrapper">
+          <video
+            class="hero__video"
+            src='./assets/video/comressed-video.mp4'
+            autoplay
+            muted
+            loop
+          ></video>
+          <div class="hero__content">
+            <h1 class="light">
+              <i class="accent">Enjoy</i> premium coffee at our charming cafe
+            </h1>
+            <p class="medium light">
+              With its inviting atmosphere and delicious coffee options, the
+              Coffee House Resource is a popular destination for coffee lovers
+              and those seeking a warm and inviting space to enjoy their
+              favorite beverage.
+            </p>
+            <a href="./Menu.html" class="button button_hero action"
+              >Menu
+              <div class="button_menu__icon"></div
+            ></a>
+          </div>
+        </div>
+      </section>
+      <section class="favorite-coffee" id="favorite">
+        <div class="wrapper">
+          <h2>Choose your <i class="accent">favorite</i> coffee</h2>
+          <div class="slider">
+            <button class="slider__control slider__control_prev"></button>
+            <div class="slider__content">
+              <div class="slider__content__cards">
+                <div class="slider__content__card">
+                  <div class="slider__content__card__img img_1"></div>
+                  <div class="slider__content__card__text">
+                    <h3>S’mores Frappuccino</h3>
+                    <p class="medium">
+                      This new drink takes an espresso and mixes it with brown
+                      sugar and cinnamon before being topped with oat milk.
+                    </p>
+                    <h3>$5.50</h3>
+                  </div>
+                </div>
+                <div class="slider__content__card">
+                  <div class="slider__content__card__img img_2"></div>
+                  <div class="slider__content__card__text">
+                    <h3>Caramel Macchiato</h3>
+                    <p class="medium">
+                      Fragrant and unique classic espresso with rich
+                      caramel-peanut syrup, with cream under whipped thick foam.
+                    </p>
+                    <h3>$5.00</h3>
+                  </div>
+                </div>
+                <div class="slider__content__card">
+                  <div class="slider__content__card__img img_3"></div>
+                  <div class="slider__content__card__text">
+                    <h3>Ice coffee</h3>
+                    <p class="medium">
+                      A popular summer drink that tones and invigorates.
+                      Prepared from coffee, milk and ice.
+                    </p>
+                    <h3>$4.50</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="slider__control slider__control_next"></button>
+          </div>
+          <div class="slider__progress">
+            <div class="slider__progress__bar">
+              <div class="slider__progress__bar_active"></div>
+            </div>
+            <div class="slider__progress__bar">
+              <div class="slider__progress__bar_active"></div>
+            </div>
+            <div class="slider__progress__bar">
+              <div class="slider__progress__bar_active"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="about" id="about">
+        <div class="wrapper">
+          <h2>
+            Resource is <i class="accent">the perfect and cozy place</i> where
+            you can enjoy a variety of hot beverages, relax, catch up with
+            friends, or get some work done.
+          </h2>
+          <div class="about__flex">
+            <div class="about__flex__img about__flex__img_1"></div>
+            <div class="about__flex__img about__flex__img_2"></div>
+            <div class="about__flex__img about__flex__img_3"></div>
+            <div class="about__flex__img about__flex__img_4"></div>
+          </div>
+        </div>
+      </section>
+      <section class="mobile-app" id="app">
+        <div class="wrapper">
+          <div class="flex-container flex-container_app">
+            <div class="mobile-app__text">
+              <h2><i class="accent">Download</i> our apps to start ordering</h2>
+              <p class="medium">
+                Download the Resource app today and experience the comfort of
+                ordering your favorite coffee from wherever you are
+              </p>
+              <div class="mobile-app__buttons flex-container">
+                <a
+                  href="https://www.apple.com/app-store/"
+                  class="button button_app action flex-container"
+                  target="_blank"
+                >
+                  <div class="button_app__icon icon_apple"></div>
+                  <div class="button_app__text">
+                    <p class="caption">Available on</p>
+                    <p>App Store</p>
+                  </div>
+                </a>
+                <a
+                  href="https://play.google.com/store"
+                  class="button button_app action flex-container"
+                  target="_blank"
+                >
+                  <div class="button_app__icon icon_google"></div>
+                  <div class="button_app__text">
+                    <p class="caption">Available on</p>
+                    <p>Google Play</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div class="mobile-app__img"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <section class="contacts" id="contacts">
+        <div class="wrapper">
+          <div class="contacts-background flex-container">
+            <div class="socials">
+              <h2 class="light">
+                Sip, Savor, Smile. <i class="accent">It’s coffee time!</i>
+              </h2>
+              <div class="flex-container socials__buttons">
+                <a
+                  href="https://x.com/"
+                  class="button button_social icon_x"
+                  target="_blank"
+                ></a
+                ><a
+                  href="https://www.instagram.com/"
+                  class="button button_social icon_inst"
+                  target="_blank"
+                ></a
+                ><a
+                  href="https://www.facebook.com"
+                  class="button button_social icon_fb"
+                  target="_blank"
+                ></a>
+              </div>
+            </div>
+            <div class="cta">
+              <h3 class="light">Contact us</h3>
+              <a
+                href="https://www.google.com/maps/place/%D0%94%D0%BE%D0%BD%D0%B0/@41.7767485,42.3835043,9.12z/data=!4m6!3m5!1s0x4067875e4697da81:0xd4472ceb6b0fbe8b!8m2!3d41.6450015!4d41.6292529!16s%2Fg%2F11hdyflqpf?entry=ttu&g_ep=EgoyMDI1MTAwOC4wIKXMDSoASAFQAw%3D%3D"
+                class="action light"
+                target="_blank"
+              >
+                <div class="cta__icon icon_pin"></div>
+                8558 Green Rd., LA
+              </a>
+              <a href="tel:+1(603)555-0123" class="tel action light">
+                <div class="cta__icon icon_phone"></div>
+                +1 (603) 555-0123
+              </a>
+              <a class="action light">
+                <div class="cta__icon icon_clock"></div>
+                Mon-Sat: 9:00 AM – 23:00 PM
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+    <script src="src/index.js"></script>
+  </body>
+</html>
