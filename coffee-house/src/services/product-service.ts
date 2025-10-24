@@ -1,6 +1,9 @@
-const URL = "https://6kt29kkeub.execute-api.eu-central-1.amazonaws.com";
+import type { Product } from "../types/product";
+import type { ServerResponse } from "../types/response";
+import { BASE_URL, ENDPOINTS } from "../utils/constants";
 
-const ENDPOINTS = {
-  FAVORITES: "/favorites",
-  PRODUCTS: "/products",
+export async function fetchFavoriteProducts() {
+  const response = await fetch(`${BASE_URL+ENDPOINTS.PRODUCTS+ENDPOINTS.FAVORITES}`);
+  const data: ServerResponse<Product[]> = await response.json();
+  return data;
 }
