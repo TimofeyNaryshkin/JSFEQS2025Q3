@@ -1,5 +1,4 @@
-import './sass/style.scss'
-import { fetchFavoriteProducts } from './services/product-service';
+import { renderSlider } from './components/Slider';
+import './sass/style.scss';
 
-const favoriteProductsResponse = await fetchFavoriteProducts();
-console.log('Favorite Products:', favoriteProductsResponse.data);
+const Slider = await renderSlider();

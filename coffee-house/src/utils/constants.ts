@@ -1,4 +1,5 @@
-export const BASE_URL = "https://6kt29kkeub.execute-api.eu-central-1.amazonaws.com";
+export const BASE_URL =
+  "https://6kt29kkeub.execute-api.eu-central-1.amazonaws.com";
 
 export const ENDPOINTS = {
   FAVORITES: "/favorites",
@@ -9,4 +10,6 @@ export const ENDPOINTS = {
   PROFILE: "/profile",
   ORDERS: "/orders",
   CONFIRM: "/confirm",
-}
+};
+
+export const ERROR_MSG = `Something went wrong. Please, refresh the page`;

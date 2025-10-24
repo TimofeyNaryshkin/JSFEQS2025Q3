@@ -49,6 +49,26 @@
   background-image: url(../assets/img/coffee-slider-3.png);
 }
 
+.img_4 {
+  background-image: url(../assets/img/coffee-slider-1.png);
+}
+
+.img_5{
+  background-image: url(../assets/img/coffee-slider-2.png);
+}
+
+.img_6 {
+  background-image: url(../assets/img/coffee-slider-3.png);
+}
+
+.img_7 {
+  background-image: url(../assets/img/coffee-slider-1.png);
+}
+
+.img_8 {
+  background-image: url(../assets/img/coffee-slider-2.png);
+}
+
 .slider__control {
   width: 60px;
   height: 60px;
@@ -107,6 +127,11 @@
 .active {
   animation: fillBar 4s linear forwards;
 }
-z .paused {
+
+.paused {
   animation-play-state: paused;
+}
+
+.slider__error {
+  margin: 0 auto;
 }
