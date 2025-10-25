@@ -3,6 +3,7 @@ import createElement from "../utils/create-element";
 
 export const MenuItem = (product: Product) => {
   const item = createElement("div", "menu__item");
+  item.setAttribute("data-id", product.id.toString());
   const itemImg = createElement(
     "div",
     `menu__item__img ${product.category}_${product.id}`

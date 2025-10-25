@@ -4,6 +4,7 @@ import { ERROR_MSG } from "../utils/constants";
 import createElement from "../utils/create-element";
 import Loader from "./Loader";
 import { MenuItem } from "./MenuItem";
+import { openModal } from "./Modal";
 
 let selectedCategory = "coffee";
 let productsCache: Product[] = [];
@@ -99,7 +100,16 @@ function handleResize() {
 }
 
 function attachEventListeners() {
-  if (!categoriesContainer) return;
+  if (!categoriesContainer || !menuItemsContainer) return;
   categoriesContainer.addEventListener("click", selectCategory);
   window.addEventListener("resize", handleResize);
+  menuItemsContainer.addEventListener("click", (e) => {
+    if (!(e.target instanceof HTMLElement)) return;
+    const item = e.target.closest(".menu__item");
+    if (!item || !item.firstChild) return;
+    const itemId = item.getAttribute("data-id");
+    if (!itemId) return;
+    const img = item.firstChild.cloneNode();
+    openModal(itemId, img);
+  });
 }
