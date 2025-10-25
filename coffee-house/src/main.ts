@@ -1,4 +1,6 @@
-import { renderSlider } from './components/Slider';
+import { Menu } from './components/Menu';
+import { Slider } from './components/Slider';
 import './sass/style.scss';
 
-await renderSlider();
+await Slider();
+await Menu();

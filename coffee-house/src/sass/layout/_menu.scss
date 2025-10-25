@@ -7,6 +7,10 @@
   }
 }
 
+.menu-wrapper {
+  position: relative;
+}
+
 .menu__categories {
   display: flex;
   justify-content: center;
@@ -53,6 +57,7 @@
   border-radius: 40px;
   background-size: 110%;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 @media (hover: hover) {
@@ -63,18 +68,18 @@
 
 @for $i from 1 through 8 {
   .coffee_#{$i} {
-    background-image: url(../assets/img/coffee-#{$i}.png);
+    background-image: url(/img/coffee-#{$i}.png);
   }
 }
 
-@for $i from 1 through 4 {
+@for $i from 9 through 30 {
   .tea_#{$i} {
-    background-image: url(../assets/img/tea-#{$i}.png);
+    background-image: url(/img/tea-#{$i}.png);
   }
 }
 
-@for $i from 1 through 8 {
+@for $i from 17 through 32 {
   .dessert_#{$i} {
-    background-image: url(../assets/img/dessert-#{$i}.png);
+    background-image: url(/img/dessert-#{$i}.png);
   }
 }

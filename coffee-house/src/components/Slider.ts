@@ -26,7 +26,7 @@ const progressBars = document.querySelectorAll<HTMLDivElement>(
   ".slider__progress__bar_active"
 );
 
-export const renderSlider = async () => {
+export const Slider = async () => {
   const lodader = Loader();
   sliderWrapper?.append(lodader);
 

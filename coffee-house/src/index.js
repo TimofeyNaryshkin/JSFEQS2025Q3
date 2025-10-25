@@ -1,7 +1,3 @@
-//slider
-
-
-
 //burger menu
 
 const burgerButton = document.querySelector(".button_burger");

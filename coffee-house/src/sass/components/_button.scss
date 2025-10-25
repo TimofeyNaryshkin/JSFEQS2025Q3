@@ -39,7 +39,7 @@
 }
 
 .button_menu__icon {
-  background-image: url(../assets/icons/coffee-cup.svg);
+  background-image: url(/icons/coffee-cup.svg);
   height: 20px;
   width: 20px;
 }
@@ -75,11 +75,11 @@
 }
 
 .icon_apple {
-  background-image: url(../assets/icons/apple.svg);
+  background-image: url(/icons/apple.svg);
 }
 
 .icon_google {
-  background-image: url(../assets/icons/google.svg);
+  background-image: url(/icons/google.svg);
 }
 
 .button_social {
@@ -93,15 +93,15 @@
 }
 
 .icon_x {
-  background-image: url(../assets/icons/twitter.svg);
+  background-image: url(/icons/twitter.svg);
 }
 
 .icon_inst {
-  background-image: url(../assets/icons/instagram.svg);
+  background-image: url(/icons/instagram.svg);
 }
 
 .icon_fb {
-  background-image: url(../assets/icons/facebook.svg);
+  background-image: url(/icons/facebook.svg);
 }
 
 .button_burger {
@@ -179,7 +179,7 @@
 }
 
 .button_load-more {
-  background-image: url(../assets/icons/refresh.svg);
+  background-image: url(/icons/refresh.svg);
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -228,15 +228,15 @@
 }
 
 .button_category__icon_1 {
-  background-image: url(../assets/img/coffee.png);
+  background-image: url(/img/coffee.png);
 }
 
 .button_category__icon_2 {
-  background-image: url(../assets/img/tea.png);
+  background-image: url(/img/tea.png);
 }
 
 .button_category__icon_3 {
-  background-image: url(../assets/img/dessert.png);
+  background-image: url(/img/dessert.png);
 }
 
 @media (hover: hover) {
@@ -257,11 +257,11 @@
       color: $color-text-second;
     }
     .icon_apple {
-      background-image: url(../assets/icons/apple-light.svg);
+      background-image: url(/icons/apple-light.svg);
     }
 
     .icon_google {
-      background-image: url(../assets/icons/google-light.svg);
+      background-image: url(/icons/google-light.svg);
     }
   }
 
@@ -271,14 +271,14 @@
   }
 
   .icon_x:hover {
-    background-image: url(../assets/icons/twitter-dark.svg);
+    background-image: url(/icons/twitter-dark.svg);
   }
 
   .icon_inst:hover {
-    background-image: url(../assets/icons/instagram-dark.svg);
+    background-image: url(/icons/instagram-dark.svg);
   }
 
   .icon_fb:hover {
-    background-image: url(../assets/icons/facebook-dark.svg);
+    background-image: url(/icons/facebook-dark.svg);
   }
 }

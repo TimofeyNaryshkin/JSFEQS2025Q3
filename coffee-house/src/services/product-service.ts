@@ -15,3 +15,15 @@ export async function favoriteProductsService() {
     }
   }
 }
+
+export async function productsService () {
+  try {
+    const response = await fetch(`${BASE_URL + ENDPOINTS.PRODUCTS}`)
+    const serverResponse: ServerResponse<Product[]> = await response.json();
+    return serverResponse.data;
+  } catch (error) {
+    if (error instanceof Error) {
+      return [];
+    }
+  }
+}
