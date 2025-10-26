@@ -276,6 +276,15 @@
   background-repeat: no-repeat;
 }
 
+.button_signin {
+  margin-top: 16px;
+}
+
+.button_signin:disabled {
+  pointer-events: none;
+  opacity: 50%;
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);

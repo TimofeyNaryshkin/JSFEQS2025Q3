@@ -13,3 +13,10 @@ export const ENDPOINTS = {
 };
 
 export const ERROR_MSG = `Something went wrong. Please, refresh the page`;
+
+export const PLACEHOLDER = "Placeholder";
+
+export const VALIDATION_RULES = {
+  loginPattern: "^[a-zA-Z]{3,}$",
+  passwordPattern: "^(?=.{6,})(?=.*[!@#$%^&*=]).+$",
+};
