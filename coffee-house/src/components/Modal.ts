@@ -98,7 +98,7 @@ function renderSizes(sizes: ProductSizes) {
   const buttons = Object.entries(sizes).map(SizeButton);
   sizeButtons.append(...buttons);
   sizeSelection.append(sizeTitle, sizeButtons);
-  selectedSize = sizes.s.size
+  selectedSize = sizes.s.size;
 
   sizeButtons.addEventListener("click", (e) => {
     if (!(e.target instanceof HTMLElement)) return;
@@ -107,10 +107,13 @@ function renderSizes(sizes: ProductSizes) {
 
     buttons.forEach((b) => b.classList.remove("selected"));
     button.classList.add("selected");
-    selectedSize = button.innerText;
 
     const sizeKey = button.getAttribute("data-size-key") as keyof ProductSizes;
     if (!sizeKey) return;
+    const size = Object.entries(sizes).find((size) => size[0] === sizeKey)?.[1]
+    if (!size) return
+    selectedSize = size.size 
+
     sizePrice.original = parseFloat(sizes[sizeKey].price);
     if (sizes[sizeKey].discountPrice) {
       sizePrice.discounted = parseFloat(sizes[sizeKey].discountPrice);
@@ -198,7 +201,7 @@ function calcAdditivePrice(
     additivesPrice.original -= parseFloat(additive.price);
     extras.splice(extras.indexOf(additiveName), 1);
   }
-  console.log(additive)
+  console.log(additive);
   calcPrice();
   return additivesPrice;
 }

@@ -15,7 +15,7 @@ export const CartItem = (item: TCartItem) => {
   const itemOptions = createElement(
     "p",
     "medium",
-    `${[item.size, ...item.extras].join(",")}`
+    `${[item.size, ...item.extras].join(", ")}`
   );
   const itemPriceContainer = createElement(
     "div",
