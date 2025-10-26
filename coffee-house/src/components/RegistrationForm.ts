@@ -7,6 +7,7 @@ import { login } from "../utils/state";
 import { SelectOption } from "./SelectOption";
 
 const typedData: CityData = data;
+let paymentMethod = "cash";
 
 const loginInput = createElement("input", "input input_login medium");
 const passwordInput = createElement("input", "input input_password medium");
@@ -36,7 +37,7 @@ const registrationButton = createElement(
 
 const loginMessage = createElement(
   "p",
-  "medium message_invalid hidden",
+  "medium message_invalid  hidden",
   "Invalid login"
 );
 const passwordMessage = createElement(
@@ -99,10 +100,10 @@ export const RegistrationForm = () => {
   const cashLabel = createElement("label", "label label_radio medium", "Cash");
   const cardLabel = createElement("label", "label label_radio medium", "Card");
 
-  const defaultCityOption = SelectOption("Select a city");
+  const defaultCityOption = SelectOption(PLACEHOLDER);
   defaultCityOption.defaultSelected = true;
   defaultCityOption.disabled = true;
-  const defaultStreetOption = SelectOption("Select a street");
+  const defaultStreetOption = SelectOption(PLACEHOLDER);
   defaultStreetOption.defaultSelected = true;
   defaultStreetOption.disabled = true;
   const cityOptions = Object.keys(data).map(SelectOption);
@@ -116,9 +117,12 @@ export const RegistrationForm = () => {
   passwordInput.type = "password";
   confirmPasswordInput.type = "password";
   houseInput.type = "number";
+  houseInput.min = "1";
   cashRadio.type = "radio";
+  cashRadio.value = "cash";
   cashRadio.defaultChecked = true;
   cardRadio.type = "radio";
+  cardRadio.value = "card";
   cashRadio.name = "payBy";
   cardRadio.name = "payBy";
   registrationButton.disabled = true;
@@ -149,10 +153,21 @@ export const RegistrationForm = () => {
   passwordInput.pattern = VALIDATION_RULES.passwordPattern;
   confirmPasswordInput.pattern = VALIDATION_RULES.passwordPattern;
 
-  loginInput.addEventListener("blur", validateSignInForm);
-  passwordInput.addEventListener("blur", validateSignInForm);
-  loginInput.addEventListener("focus", resetLoginValidation);
-  passwordInput.addEventListener("focus", resetPasswordValidation);
+  loginInput.addEventListener("blur", validateRegistrationForm);
+  passwordInput.addEventListener("blur", validateRegistrationForm);
+  confirmPasswordInput.addEventListener("blur", validateRegistrationForm);
+  houseInput.addEventListener("blur", validateRegistrationForm);
+
+  loginInput.addEventListener("focus", () =>
+    resetValidation(loginInput, loginMessage)
+  );
+  passwordInput.addEventListener("focus", () =>
+    resetValidation(passwordInput, passwordMessage)
+  );
+  confirmPasswordInput.addEventListener("focus", () =>
+    resetValidation(confirmPasswordInput, confirmPasswordMessage)
+  );
+
   registrationButton.addEventListener("click", (e) => {
     e.preventDefault();
     signin({ login: loginInput.value, password: passwordInput.value });
@@ -165,41 +180,59 @@ export const RegistrationForm = () => {
       const streetOptions = streets.map(SelectOption);
       streetSelect.replaceChildren(defaultStreetOption, ...streetOptions);
     }
+    validateRegistrationForm();
+  });
+  streetSelect.addEventListener("change", validateRegistrationForm);
+
+  houseInput.addEventListener("input", () => {
+    houseInput.value = houseInput.value.replace(/[^0-9]/g, "");
+  });
+  cardRadio.addEventListener("change", () => {
+    paymentMethod = cardRadio.value;
+    validateRegistrationForm();
+  });
+  cashRadio.addEventListener("change", () => {
+    paymentMethod = cashRadio.value;
+    validateRegistrationForm();
   });
 };
 
-const validateSignInForm = () => {
-  if (loginInput.value && !loginInput.validity.valid) {
-    showLoginValidationMessage();
-  }
-  if (passwordInput.value && !passwordInput.validity.valid) {
-    showPasswordValidationMessage();
-  }
+const validateRegistrationForm = () => {
+  validateData(loginInput, loginMessage);
+  validateData(passwordInput, passwordMessage);
+  validateData(confirmPasswordInput, confirmPasswordMessage);
+  validateData(citySelect, cityMessage);
+  validateData(streetSelect, streetMessage);
+  validateData(houseInput, houseMessage);
+
   registrationButton.disabled =
     !loginInput.value ||
     !loginInput.validity.valid ||
     !passwordInput.value ||
-    !passwordInput.validity.valid;
+    !passwordInput.validity.valid ||
+    !confirmPasswordInput.value ||
+    !confirmPasswordInput.validity.valid ||
+    !citySelect.value ||
+    confirmPasswordInput.value !== passwordInput.value ||
+    citySelect.value === PLACEHOLDER ||
+    streetSelect.value == PLACEHOLDER ||
+    !streetSelect.value ||
+    !houseInput.value ||
+    !houseInput.validity.valid;
+
+  if (!registrationButton.disabled) {
+    resetValidation(confirmPasswordInput, confirmPasswordMessage);
+  }
 };
 
-const resetLoginValidation = () => {
-  loginInput.classList.remove("invalid");
-  loginMessage.classList.add("hidden");
+const resetValidation = (element: Element, message: Element) => {
+  element.classList.remove("invalid");
+  message.classList.add("hidden");
 };
 
-const resetPasswordValidation = () => {
-  passwordInput.classList.remove("invalid");
-  passwordMessage.classList.add("hidden");
-};
-
-const showLoginValidationMessage = () => {
-  loginInput.classList.add("invalid");
-  loginMessage.classList.remove("hidden");
-};
-
-const showPasswordValidationMessage = () => {
-  passwordInput.classList.add("invalid");
-  passwordMessage.classList.remove("hidden");
+const showValidationMessage = (element: Element, message: Element) => {
+  element.classList.add("invalid");
+  message.classList.remove("hidden");
 };
 
 const signin = async (loginData: LoginData) => {
@@ -215,4 +248,20 @@ const signin = async (loginData: LoginData) => {
 
 const showErrorMessage = () => {
   errorMessage.classList.remove("hidden");
+};
+
+const validateData = (
+  element: HTMLInputElement | HTMLSelectElement,
+  message: Element
+) => {
+  if (element.value && !element.validity.valid) {
+    showValidationMessage(element, message);
+  }
+  if (
+    element === confirmPasswordInput &&
+    element.value &&
+    element.value !== passwordInput.value
+  ) {
+    showValidationMessage(element, message);
+  }
 };
