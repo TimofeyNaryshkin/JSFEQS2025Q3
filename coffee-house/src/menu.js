@@ -1,4 +1,3 @@
-import data from "./products.json" with { type: "json" };
 
 //category selecion
 

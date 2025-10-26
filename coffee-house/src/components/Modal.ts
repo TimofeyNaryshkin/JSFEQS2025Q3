@@ -81,11 +81,11 @@ export async function openModal(id: string, img: Node) {
 }
 
 let selectedSize = "";
-let sizePrice = {
+const sizePrice = {
   original: 0,
   discounted: 0,
 };
-let additivesPrice = {
+const additivesPrice = {
   original: 0,
   discounted: 0,
 };

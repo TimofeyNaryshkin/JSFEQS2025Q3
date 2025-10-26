@@ -12,3 +12,9 @@ export interface LoginData {
   login: string;
   password: string;
 }
+
+export type CityData = {
+  "New York": string[];
+  "Los Angeles": string[];
+  "Chicago": string[];
+};
