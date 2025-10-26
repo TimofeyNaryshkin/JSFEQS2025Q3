@@ -7,6 +7,15 @@ export default defineConfig({
   build: {
     target: 'esnext',
     outDir: 'dist',
+    rollupOptions : {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        menu: path.resolve(__dirname, 'menu.html'),
+        cart: path.resolve(__dirname, 'cart.html'),
+        signin: path.resolve(__dirname, 'signin.html'),
+        registration: path.resolve(__dirname, 'registration.html'),
+      }
+    }
   },
   resolve: {
     alias: {
