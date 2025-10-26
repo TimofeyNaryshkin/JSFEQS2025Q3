@@ -3,7 +3,7 @@ import path from 'node:path';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/JSFEQS2025Q3/', // совпадает с именем репозитория
+  base: '/', // совпадает с именем репозитория
   build: {
     target: 'esnext',
     outDir: 'dist',
