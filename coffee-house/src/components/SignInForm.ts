@@ -1,3 +1,5 @@
+import { loginService } from "../services/auth-service";
+import type { LoginData } from "../types/auth";
 import { PLACEHOLDER, VALIDATION_RULES } from "../utils/constants";
 import createElement from "../utils/create-element";
 
@@ -19,6 +21,12 @@ const passwordMessage = createElement(
   "Invalid password"
 );
 
+const errorMessage = createElement(
+  "p",
+  "medium message_invalid hidden",
+  "Incorrect login or password"
+);
+
 export const SignInForm = () => {
   const signinWrapper =
     document.querySelector<HTMLDivElement>(".signin-wrapper");
@@ -33,7 +41,7 @@ export const SignInForm = () => {
 
   loginLabel.append(loginInput, loginMessage);
   passwordLabel.append(passwordInput, passwordMessage);
-  form.append(loginLabel, passwordLabel, signInButton);
+  form.append(loginLabel, passwordLabel, signInButton, errorMessage);
   signinWrapper?.append(heading, form);
 
   loginInput.pattern = VALIDATION_RULES.loginPattern;
@@ -43,6 +51,10 @@ export const SignInForm = () => {
   passwordInput.addEventListener("blur", validateSignInForm);
   loginInput.addEventListener("focus", resetLoginValidation);
   passwordInput.addEventListener("focus", resetPasswordValidation);
+  signInButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    login({ login: loginInput.value, password: passwordInput.value });
+  });
 };
 
 const validateSignInForm = () => {
@@ -52,7 +64,6 @@ const validateSignInForm = () => {
   if (passwordInput.value && !passwordInput.validity.valid) {
     showPasswordValidationMessage();
   }
-  console.log(loginInput.validity.valid && passwordInput.validity.valid);
   signInButton.disabled =
     !loginInput.value ||
     !loginInput.validity.valid ||
@@ -78,4 +89,16 @@ const showLoginValidationMessage = () => {
 const showPasswordValidationMessage = () => {
   passwordInput.classList.add("invalid");
   passwordMessage.classList.remove("hidden");
+};
+
+const login = async (loginData: LoginData) => {
+  errorMessage.classList.add("hidden");
+  const data = await loginService(loginData);
+  if (!data) {
+    showErrorMessage();
+  }
+};
+
+const showErrorMessage = () => {
+  errorMessage.classList.remove("hidden");
 };

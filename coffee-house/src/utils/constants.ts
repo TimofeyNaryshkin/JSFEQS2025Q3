@@ -17,6 +17,6 @@ export const ERROR_MSG = `Something went wrong. Please, refresh the page`;
 export const PLACEHOLDER = "Placeholder";
 
 export const VALIDATION_RULES = {
-  loginPattern: "^[a-zA-Z]{3,}$",
+  loginPattern: "^[a-zA-Z][a-zA-Z0-9]{2,}$",
   passwordPattern: "^(?=.{6,})(?=.*[!@#$%^&*=]).+$",
 };
