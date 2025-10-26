@@ -1,6 +1,6 @@
 import data from "../select-options.json";
-import { loginService } from "../services/auth-service";
-import type { CityData, LoginData } from "../types/auth";
+import { registrationService } from "../services/auth-service";
+import type { CityData, RegistrationData } from "../types/auth";
 import { PLACEHOLDER, VALIDATION_RULES } from "../utils/constants";
 import createElement from "../utils/create-element";
 import { login } from "../utils/state";
@@ -65,11 +65,7 @@ const houseMessage = createElement(
   "medium message_invalid hidden",
   "Invalid house number"
 );
-const errorMessage = createElement(
-  "p",
-  "medium message_invalid hidden",
-  "Incorrect login or password"
-);
+const errorMessage = createElement("p", "medium message_invalid hidden");
 
 export const RegistrationForm = () => {
   const registrationWrapper = document.querySelector<HTMLDivElement>(
@@ -170,7 +166,15 @@ export const RegistrationForm = () => {
 
   registrationButton.addEventListener("click", (e) => {
     e.preventDefault();
-    signin({ login: loginInput.value, password: passwordInput.value });
+    register({
+      login: loginInput.value,
+      password: passwordInput.value,
+      confirmPassword: confirmPasswordInput.value,
+      city: citySelect.value,
+      street: streetSelect.value,
+      houseNumber: +houseInput.value,
+      paymentMethod,
+    });
   });
   citySelect.addEventListener("change", () => {
     const selectedCity = citySelect.value as keyof CityData;
@@ -235,18 +239,23 @@ const showValidationMessage = (element: Element, message: Element) => {
   message.classList.remove("hidden");
 };
 
-const signin = async (loginData: LoginData) => {
+const register = async (registrationData: RegistrationData) => {
   errorMessage.classList.add("hidden");
-  const data = await loginService(loginData);
-  if (!data) {
-    showErrorMessage();
+  const data = await registrationService(registrationData);
+  if (data instanceof Error) {
+    showErrorMessage(data.message);
+    return;
+  }
+  if (data?.error) {
+    showErrorMessage(data.error);
     return;
   }
   login();
   window.location.replace("./menu.html");
 };
 
-const showErrorMessage = () => {
+const showErrorMessage = (message: string) => {
+  errorMessage.textContent = message;
   errorMessage.classList.remove("hidden");
 };
 

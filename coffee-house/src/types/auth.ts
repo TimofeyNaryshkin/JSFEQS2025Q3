@@ -13,8 +13,23 @@ export interface LoginData {
   password: string;
 }
 
+export interface RegistrationResponseData {
+  access_token: string;
+  user: User;
+}
+
+export interface User {
+  login: string
+  city: string
+  street: string
+  houseNumber: number
+  paymentMethod: string
+  id: number
+  createdAt: string
+}
+
 export type CityData = {
   "New York": string[];
   "Los Angeles": string[];
-  "Chicago": string[];
+  Chicago: string[];
 };
