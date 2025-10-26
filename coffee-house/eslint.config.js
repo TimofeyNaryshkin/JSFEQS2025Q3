@@ -16,8 +16,8 @@ export default defineConfig([
     extends: ["js/recommended"],
     languageOptions: { globals: globals.browser },
     rules: {
-      'no-explicit-any': 'error',
-    }
+      "@typescript-eslint/no-explicit-any": "error",
+    },
   },
   tseslint.configs.recommended,
 ]);

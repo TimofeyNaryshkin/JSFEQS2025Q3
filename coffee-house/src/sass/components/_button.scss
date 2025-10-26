@@ -8,7 +8,6 @@
 }
 
 .button_menu {
-  display: block;
   position: relative;
   display: flex;
   gap: 8px;
@@ -26,6 +25,27 @@
 }
 
 .button_menu::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  max-width: 100%;
+  width: 0%;
+  height: 2px;
+  background-color: $color-text;
+  transition: 0.3s ease-out;
+}
+
+.button_cart {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  flex-direction: row-reverse;
+}
+
+.button_cart::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -256,6 +276,10 @@
 
 @media (hover: hover) {
   .button_menu:hover::after {
+    width: 100%;
+  }
+
+  .button_cart:hover::after {
     width: 100%;
   }
 
