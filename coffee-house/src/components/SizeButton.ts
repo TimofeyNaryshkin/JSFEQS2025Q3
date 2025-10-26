@@ -1,5 +1,6 @@
 import type { Size } from "../types/product";
 import createElement from "../utils/create-element";
+import { PriceTiiltip } from "./PriceTooltip";
 
 export const SizeButton = (size: [string, Size], i: number) => {
   const button = createElement(
@@ -16,5 +17,12 @@ export const SizeButton = (size: [string, Size], i: number) => {
   button.innerText = `${size[1].size}`;
   button.append(icon);
   button.setAttribute("data-size-key", size[0]);
+  const tootlip = PriceTiiltip(size[1].price);
+  button.addEventListener("mouseenter", () => {
+    button.append(tootlip);
+  });
+  button.addEventListener("mouseleave", () => {
+    tootlip.remove();
+  });
   return button;
 };
