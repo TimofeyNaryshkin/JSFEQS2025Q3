@@ -110,15 +110,15 @@ function renderSizes(sizes: ProductSizes) {
 
     const sizeKey = button.getAttribute("data-size-key") as keyof ProductSizes;
     if (!sizeKey) return;
-    const size = Object.entries(sizes).find((size) => size[0] === sizeKey)?.[1]
-    if (!size) return
-    selectedSize = size.size 
+    const size = Object.entries(sizes).find((size) => size[0] === sizeKey)?.[1];
+    if (!size) return;
+    selectedSize = size.size;
 
     sizePrice.original = parseFloat(sizes[sizeKey].price);
     if (sizes[sizeKey].discountPrice) {
       sizePrice.discounted = parseFloat(sizes[sizeKey].discountPrice);
     } else {
-      sizePrice.discounted = 0;
+      sizePrice.discounted = parseFloat(sizes[sizeKey].price);
     }
     calcPrice();
   });
@@ -191,12 +191,16 @@ function calcAdditivePrice(
   if (button.classList.contains("selected")) {
     if (additive.discountPrice) {
       additivesPrice.discounted += parseFloat(additive.discountPrice);
+    } else {
+      additivesPrice.discounted += parseFloat(additive.price);
     }
     additivesPrice.original += parseFloat(additive.price);
     extras.push(additiveName);
   } else {
     if (additive.discountPrice) {
       additivesPrice.discounted -= parseFloat(additive.discountPrice);
+    } else {
+      additivesPrice.discounted -= parseFloat(additive.price);
     }
     additivesPrice.original -= parseFloat(additive.price);
     extras.splice(extras.indexOf(additiveName), 1);
