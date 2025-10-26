@@ -8,7 +8,9 @@ const getCartStorage = () => localStorage.getItem("cart") ?? "[]";
 const cartButton = createElement("a", "button_cart action hidden");
 const cartWrapper = document.querySelector<HTMLDivElement>(".cart-wrapper");
 const cartList = createElement("div", "cart__list");
-const totalAmount = createElement("h3", undefined);
+const totalPrice = createElement("h3");
+const totalDicsountedPrice = createElement("h3");
+
 const authButtons = AuthButtons();
 
 export const CartButton = () => {
@@ -29,8 +31,10 @@ export const Cart = () => {
   const cartContainer = createElement("div", "cart__container");
   const cartTotal = createElement("div", "cart__total");
   const totalText = createElement("h3", undefined, "Total:");
+  const cartPriceContainer = createElement("div", "cart__price-container");
 
-  cartTotal.append(totalText, totalAmount);
+  cartPriceContainer.append(totalPrice, totalDicsountedPrice);
+  cartTotal.append(totalText, cartPriceContainer);
   cartContainer.append(cartList, cartTotal);
 
   cartWrapper.append(heading, cartContainer, authButtons);
@@ -54,17 +58,21 @@ export const updateCart = (newCartStorage: string) => {
   );
 
   authButtons.classList.toggle("hidden", userState.isLoggedIn);
+  totalPrice.classList.toggle("line-through", userState.isLoggedIn);
+  totalDicsountedPrice.classList.toggle("hidden", !userState.isLoggedIn);
 
   const cartItemsNodes = cartItems.map(CartItem);
   cartList.replaceChildren(...cartItemsNodes);
-  totalAmount.innerText = `${calcCartTotal(cartItems)[0]}`;
+  const newPrice = calcCartTotal(cartItems);
+  totalPrice.innerText = `${newPrice[0]}`;
+  totalDicsountedPrice.innerText = `${newPrice[1]}`;
 };
 
 const calcCartTotal = (items: TCartItem[]) => {
   const total = items.reduce(
     (acc, item) => {
-      acc[0] + parseFloat(item.prise);
-      acc[0] + parseFloat(item.discountPrice);
+      acc[0] += parseFloat(item.prise);
+      acc[1] += parseFloat(item.discountPrice);
       return acc;
     },
     [0, 0]
@@ -74,7 +82,7 @@ const calcCartTotal = (items: TCartItem[]) => {
 
 export const addToCart = (item: TCartItem) => {
   const cartItems = JSON.parse(getCartStorage()) as TCartItem[];
-  cartItems.push(item)
+  cartItems.push(item);
   const newCartStorage = JSON.stringify(cartItems);
   updateCart(newCartStorage);
 };

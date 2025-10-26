@@ -1,5 +1,5 @@
 export const userState = {
-  isLoggedIn: false,
+  isLoggedIn: true,
 };
 
 export const login = () => {

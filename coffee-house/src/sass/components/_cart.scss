@@ -53,3 +53,13 @@
   background-size: contain;
   border-radius: 20px;
 }
+
+.line-through {
+  text-decoration: line-through;
+  opacity: 50%;
+}
+
+.cart__price-container {
+  display: flex;
+  gap: 20px;
+}

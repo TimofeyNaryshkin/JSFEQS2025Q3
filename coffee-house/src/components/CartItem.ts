@@ -1,5 +1,6 @@
 import type { TCartItem } from "../types/cart";
 import createElement from "../utils/create-element";
+import { userState } from "../utils/state";
 
 export const CartItem = (item: TCartItem) => {
   const cartItem = createElement("div", "cart__item");
@@ -9,7 +10,10 @@ export const CartItem = (item: TCartItem) => {
     "button button_cart-item_remove action"
   );
   removeButton.setAttribute("data-product-id", item.id.toString());
-  const itemImage = createElement("div", `cart__item__image ${item.categoty}_${item.id}`);
+  const itemImage = createElement(
+    "div",
+    `cart__item__image ${item.categoty}_${item.id}`
+  );
   const itemDescription = createElement("div", "cart__item__description");
   const itemTitle = createElement("h3", undefined, item.name);
   const itemOptions = createElement(
@@ -27,6 +31,9 @@ export const CartItem = (item: TCartItem) => {
     "cart__item__discount-price",
     `$${item.discountPrice}`
   );
+  
+  itemPrice.classList.toggle("line-through", userState.isLoggedIn);
+  itemDiscountPrice.classList.toggle("hidden", !userState.isLoggedIn);
 
   itemDescription.append(itemTitle, itemOptions);
   itemPriceContainer.append(itemPrice, itemDiscountPrice);
