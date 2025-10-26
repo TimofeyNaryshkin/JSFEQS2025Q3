@@ -63,7 +63,10 @@ export async function openModal(id: string, img: Node) {
   const title = createElement("h3", undefined, product.name);
   const description = createElement("p", "medium desc", product.description);
 
-  sizePrice.original = parseFloat(product.price);
+  sizePrice.original = parseFloat(product.sizes.s.price);
+  sizePrice.discounted = product.sizes.s.discountPrice
+    ? parseFloat(product.sizes.s.discountPrice)
+    : parseFloat(product.sizes.s.price);
 
   text.append(
     title,
@@ -205,7 +208,6 @@ function calcAdditivePrice(
     additivesPrice.original -= parseFloat(additive.price);
     extras.splice(extras.indexOf(additiveName), 1);
   }
-  console.log(additive);
   calcPrice();
   return additivesPrice;
 }

@@ -57,19 +57,22 @@ export const updateCart = (newCartStorage: string) => {
     !userState.isLoggedIn && !cartItems.length
   );
 
-  authButtons.classList.toggle("hidden", userState.isLoggedIn);
-  totalPrice.classList.toggle("line-through", userState.isLoggedIn);
-  totalDicsountedPrice.classList.toggle("hidden", !userState.isLoggedIn);
-
   const cartItemsNodes = cartItems.map(CartItem);
   cartList.replaceChildren(...cartItemsNodes);
   const newPrice = calcCartTotal(cartItems);
-  totalPrice.innerText = `${newPrice[0]}`;
-  totalDicsountedPrice.innerText = `${newPrice[1]}`;
+  totalPrice.innerText = `$${newPrice[0].toFixed(2)}`;
+  totalDicsountedPrice.innerText = `$${newPrice[1].toFixed(2)}`;
+
+  authButtons.classList.toggle("hidden", userState.isLoggedIn);
+  totalPrice.classList.toggle("line-through", userState.isLoggedIn && newPrice[1] !== 0);
+  totalDicsountedPrice.classList.toggle(
+    "hidden",
+    !userState.isLoggedIn || newPrice[1] === 0
+  );
 };
 
 const calcCartTotal = (items: TCartItem[]) => {
-  const total = items.reduce(
+  return items.reduce(
     (acc, item) => {
       acc[0] += parseFloat(item.prise);
       acc[1] += parseFloat(item.discountPrice);
@@ -77,7 +80,6 @@ const calcCartTotal = (items: TCartItem[]) => {
     },
     [0, 0]
   );
-  return total.map((price) => `$${price.toFixed(2)}`);
 };
 
 export const addToCart = (item: TCartItem) => {
