@@ -1,6 +1,7 @@
 import type { TCartItem } from "../types/cart";
 import createElement from "../utils/create-element";
 import { userState } from "../utils/state";
+import { removeFromCart } from "./Cart";
 
 export const CartItem = (item: TCartItem) => {
   const cartItem = createElement("div", "cart__item");
@@ -31,7 +32,7 @@ export const CartItem = (item: TCartItem) => {
     "cart__item__discount-price",
     `$${item.discountPrice}`
   );
-  
+
   itemPrice.classList.toggle("line-through", userState.isLoggedIn);
   itemDiscountPrice.classList.toggle("hidden", !userState.isLoggedIn);
 
@@ -40,6 +41,8 @@ export const CartItem = (item: TCartItem) => {
   cartItemInfo.append(removeButton, itemImage, itemDescription);
   cartItem.append(cartItemInfo, itemPriceContainer);
 
-  removeButton.addEventListener("click", () => {});
+  removeButton.addEventListener("click", () => {
+    removeFromCart(item);
+  });
   return cartItem;
 };

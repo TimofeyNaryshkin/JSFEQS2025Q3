@@ -89,8 +89,14 @@ export const addToCart = (item: TCartItem) => {
 
 export const removeFromCart = (item: TCartItem) => {
   const cartItems = JSON.parse(getCartStorage()) as TCartItem[];
+  const removedItem = cartItems.find(
+    (cartItem) =>
+      cartItem.name === item.name &&
+      cartItem.extras.join() === item.extras.join() &&
+      cartItem.size === item.size
+  );
   const newCartStorage = JSON.stringify(
-    cartItems.filter((cartItem) => cartItem.name !== item.name)
+    cartItems.filter((cartItem) => cartItem !== removedItem)
   );
   updateCart(newCartStorage);
 };
