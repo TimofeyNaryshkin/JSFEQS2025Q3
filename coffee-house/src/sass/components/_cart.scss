@@ -1,5 +1,20 @@
-.cart__icon {
-  background-image: url(/icons/cart.svg);
-  width: 20px;
-  height: 20px;
+.cart {
+  text-align: center;
+  margin: 20px 0 100px;
+}
+
+.cart__container {
+  margin: 40px 0;
+}
+
+.cart__total {
+  margin: 40px 0 0 48px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.auth-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
 }

@@ -1,23 +1,88 @@
-import type { Product } from "../types/product";
+import type { TCartItem } from "../types/cart";
 import createElement from "../utils/create-element";
+import { userState } from "../utils/state";
+import { AuthButtons } from "./AuthButtons";
+import { CartItem } from "./CartItem";
 
-let cartStorage = localStorage.getItem("cart") ?? "[]";
-const cart = createElement("a", "button_cart action");
+const getCartStorage = () => localStorage.getItem("cart") ?? "[]";
+const cartButton = createElement("a", "button_cart action hidden");
+const cartWrapper = document.querySelector<HTMLDivElement>(".cart-wrapper");
+const cartList = createElement("div", "cart__list");
+const totalAmount = createElement("h3", undefined);
+const authButtons = AuthButtons();
 
-export const Cart = () => {
-  const cartItems = JSON.parse(cartStorage) as Product[];
-  cart.innerText = cartItems.length ? cartItems.length.toString() : "";
-  const cartIcon = createElement("div", "cart__icon");
-  cart.append(cartIcon);
+export const CartButton = () => {
+  const cartIcon = createElement("div", "button_cart__icon");
+  const countSpan = createElement("span", "button_cart__count");
+  cartButton.append(cartIcon, countSpan);
+  cartButton.setAttribute("href", "./cart.html");
   const headerLinksContainer = document.querySelector<HTMLDivElement>(
     ".header__links-container"
   );
-  headerLinksContainer?.prepend(cart);
+  headerLinksContainer?.prepend(cartButton);
+  updateCart(getCartStorage());
+};
+
+export const Cart = () => {
+  if (!cartWrapper) return;
+  const heading = createElement("h2", undefined, "Cart");
+  const cartContainer = createElement("div", "cart__container");
+  const cartTotal = createElement("div", "cart__total");
+  const totalText = createElement("h3", undefined, "Total:");
+
+  cartTotal.append(totalText, totalAmount);
+  cartContainer.append(cartList, cartTotal);
+
+  cartWrapper.append(heading, cartContainer, authButtons);
+
+  updateCart(getCartStorage());
 };
 
 export const updateCart = (newCartStorage: string) => {
   localStorage.setItem("cart", newCartStorage);
-  cartStorage = newCartStorage;
-  const cartItems = JSON.parse(cartStorage) as Product[];
-  cart.innerText = cartItems.length ? cartItems.length.toString() : "";
+  const cartItems = JSON.parse(getCartStorage()) as TCartItem[];
+  const countSpan = cartButton.querySelector<HTMLSpanElement>(
+    ".button_cart__count"
+  );
+  if (countSpan) {
+    countSpan.innerText = cartItems.length ? cartItems.length.toString() : "";
+  }
+
+  cartButton.classList.toggle(
+    "hidden",
+    !userState.isLoggedIn && !cartItems.length
+  );
+
+  authButtons.classList.toggle("hidden", userState.isLoggedIn);
+
+  const cartItemsNodes = cartItems.map(CartItem);
+  cartList.replaceChildren(...cartItemsNodes);
+  totalAmount.innerText = `${calcCartTotal(cartItems)[0]}`;
+};
+
+const calcCartTotal = (items: TCartItem[]) => {
+  const total = items.reduce(
+    (acc, item) => {
+      acc[0] + parseFloat(item.prise);
+      acc[0] + parseFloat(item.discountPrice);
+      return acc;
+    },
+    [0, 0]
+  );
+  return total.map((price) => `$${price.toFixed(2)}`);
+};
+
+export const addToCart = (item: TCartItem) => {
+  const cartItems = JSON.parse(getCartStorage()) as TCartItem[];
+  cartItems.push(item)
+  const newCartStorage = JSON.stringify(cartItems);
+  updateCart(newCartStorage);
+};
+
+export const removeFromCart = (item: TCartItem) => {
+  const cartItems = JSON.parse(getCartStorage()) as TCartItem[];
+  const newCartStorage = JSON.stringify(
+    cartItems.filter((cartItem) => cartItem.name !== item.name)
+  );
+  updateCart(newCartStorage);
 };

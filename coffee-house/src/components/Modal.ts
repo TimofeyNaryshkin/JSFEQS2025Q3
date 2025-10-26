@@ -1,7 +1,9 @@
 import { productByIdService } from "../services/product-service";
+import type { TCartItem } from "../types/cart";
 import type { Additive, ProductDetails, ProductSizes } from "../types/product";
 import createElement from "../utils/create-element";
 import { AdditiveButton } from "./AdditiveButton";
+import { addToCart } from "./Cart";
 import { ErrorNotification } from "./ErrorNotification";
 import Loader from "./Loader";
 import { SizeButton } from "./SizeButton";
@@ -54,12 +56,14 @@ export async function openModal(id: string, img: Node) {
     "button button_modal_close action"
   );
   closeButton.addEventListener("click", handleModal);
-  addToCartButton.addEventListener("click", handleModal);
+  addToCartButton.addEventListener("click", () =>
+    addToCartButtonHandler(product)
+  );
   const text = createElement("div", "modal__content__text");
   const title = createElement("h3", undefined, product.name);
   const description = createElement("p", "medium desc", product.description);
 
-  sizePrice = parseFloat(product.price);
+  sizePrice.original = parseFloat(product.price);
 
   text.append(
     title,
@@ -73,8 +77,16 @@ export async function openModal(id: string, img: Node) {
   overlay.replaceChildren(modalContent);
 }
 
-let sizePrice = 0;
-let additivesPrice = 0;
+let selectedSize = "";
+let sizePrice = {
+  original: 0,
+  discounted: 0,
+};
+let additivesPrice = {
+  original: 0,
+  discounted: 0,
+};
+const extras: string[] = [];
 
 function renderSizes(sizes: ProductSizes) {
   const sizeSelection = createElement(
@@ -86,19 +98,25 @@ function renderSizes(sizes: ProductSizes) {
   const buttons = Object.entries(sizes).map(SizeButton);
   sizeButtons.append(...buttons);
   sizeSelection.append(sizeTitle, sizeButtons);
+  selectedSize = sizes.s.size
 
   sizeButtons.addEventListener("click", (e) => {
     if (!(e.target instanceof HTMLElement)) return;
-    const button = e.target.closest(".button_option_size");
+    const button = e.target.closest<HTMLButtonElement>(".button_option_size");
     if (!button) return;
 
     buttons.forEach((b) => b.classList.remove("selected"));
     button.classList.add("selected");
+    selectedSize = button.innerText;
 
     const sizeKey = button.getAttribute("data-size-key") as keyof ProductSizes;
     if (!sizeKey) return;
-    sizePrice = parseFloat(sizes[sizeKey].price);
-
+    sizePrice.original = parseFloat(sizes[sizeKey].price);
+    if (sizes[sizeKey].discountPrice) {
+      sizePrice.discounted = parseFloat(sizes[sizeKey].discountPrice);
+    } else {
+      sizePrice.discounted = 0;
+    }
     calcPrice();
   });
   return sizeSelection;
@@ -126,19 +144,13 @@ function renderAdditives(additives: Additive[]) {
     if (!button) return;
 
     button.classList.toggle("selected");
-    const additiveName = button.getAttribute("data-additive-name");
-    if (!additiveName) return;
-    const additivePrice = additives.find(
-      (additive) => additive.name === additiveName
-    )?.price;
-    if (!additivePrice) return;
 
-    if (button.classList.contains("selected")) {
-      additivesPrice += parseFloat(additivePrice);
-    } else {
-      additivesPrice -= parseFloat(additivePrice);
-    }
-    calcPrice();
+    const additive = additives.find(
+      (additive) => additive.name === button.getAttribute("data-additive-name")
+    );
+    if (!additive) return;
+
+    calcAdditivePrice(button, additive, additive.name);
   });
 
   return additivesSelection;
@@ -156,11 +168,54 @@ function renderPrice(price: ProductDetails["price"]) {
 }
 
 function calcPrice() {
-  const totalPrice = sizePrice + additivesPrice;
+  const totalPrice = {
+    original: sizePrice.original + additivesPrice.original,
+    discounted: sizePrice.discounted + additivesPrice.discounted,
+  };
   const totalPriceNode = document.querySelector(".modal__item__price");
   if (totalPriceNode instanceof HTMLHeadingElement) {
-    totalPriceNode.innerText = `$${totalPrice.toFixed(2)}`;
+    totalPriceNode.innerText = `$${totalPrice.original.toFixed(2)}`;
   }
+  console.log(totalPrice);
+  return totalPrice;
+}
+
+function calcAdditivePrice(
+  button: Element,
+  additive: Additive,
+  additiveName: string
+) {
+  if (button.classList.contains("selected")) {
+    if (additive.discountPrice) {
+      additivesPrice.discounted += parseFloat(additive.discountPrice);
+    }
+    additivesPrice.original += parseFloat(additive.price);
+    extras.push(additiveName);
+  } else {
+    if (additive.discountPrice) {
+      additivesPrice.discounted -= parseFloat(additive.discountPrice);
+    }
+    additivesPrice.original -= parseFloat(additive.price);
+    extras.splice(extras.indexOf(additiveName), 1);
+  }
+  console.log(additive)
+  calcPrice();
+  return additivesPrice;
+}
+
+function addToCartButtonHandler(product: ProductDetails) {
+  const totalPrice = calcPrice();
+  const cartItem: TCartItem = {
+    id: product.id,
+    name: product.name,
+    categoty: product.category,
+    size: selectedSize,
+    extras,
+    prise: totalPrice.original.toFixed(2),
+    discountPrice: totalPrice.discounted.toFixed(2),
+  };
+  addToCart(cartItem);
+  handleModal();
 }
 
 window.addEventListener("keydown", (e) => {

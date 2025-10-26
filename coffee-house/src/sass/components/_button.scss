@@ -11,9 +11,6 @@
   position: relative;
   display: flex;
   gap: 8px;
-  @include media-nav-hide {
-    display: none;
-  }
 }
 
 .button_menu_inactive {
@@ -42,7 +39,6 @@
   cursor: pointer;
   display: flex;
   gap: 8px;
-  flex-direction: row-reverse;
 }
 
 .button_cart::after {
@@ -62,6 +58,12 @@
   background-image: url(/icons/coffee-cup.svg);
   height: 20px;
   width: 20px;
+}
+
+.button_cart__icon {
+  background-image: url(/icons/cart.svg);
+  width: 20px;
+  height: 20px;
 }
 
 .button_hero {
@@ -249,6 +251,20 @@
   border: 1px solid $color-border;
 }
 
+.button_auth {
+  border: 1px solid $color-border-second;
+  padding: 10px 0;
+  width: 200px;
+}
+
+.button_cart.hidden {
+  display: none;
+}
+
+.auth-buttons.hidden {
+  display: none;
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -288,6 +304,11 @@
       width: 20px;
       opacity: 1;
     }
+  }
+
+  .button_auth:hover {
+    background-color: $color-border-second;
+    color: $color-text-second;
   }
 
   .button_modal_close:hover {
