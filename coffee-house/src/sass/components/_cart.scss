@@ -18,3 +18,32 @@
   justify-content: center;
   gap: 40px;
 }
+
+.cart__item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart__item__info {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.cart__item__price-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.cart__item__description {
+  text-align: start;
+}
+
+.cart__item__image {
+  width: 100px;
+  height: 100px;
+  background-position: center;
+  background-size: contain;
+  border-radius: 20px;
+}

@@ -265,6 +265,17 @@
   display: none;
 }
 
+.button_cart-item_remove {
+  width: 24px;
+  height: 24px;
+  background-image: url(/icons/trash.svg);
+  padding: 0;
+  border: none;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);
