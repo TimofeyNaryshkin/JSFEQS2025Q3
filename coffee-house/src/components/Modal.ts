@@ -162,3 +162,9 @@ function calcPrice() {
     totalPriceNode.innerText = `$${totalPrice.toFixed(2)}`;
   }
 }
+
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && isModalOpened) {
+    handleModal();
+  }
+});
