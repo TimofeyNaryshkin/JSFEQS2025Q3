@@ -46,15 +46,20 @@ export async function openModal(id: string, img: Node) {
   const modalContent = createElement("div", "modal__content");
   const addToCartButton = createElement(
     "button",
-    "button button_modal_close action",
+    "button button_add-to-cart action",
     "Add to cart"
   );
+  const closeButton = createElement(
+    "button",
+    "button button_modal_close action"
+  );
+  closeButton.addEventListener("click", handleModal);
   addToCartButton.addEventListener("click", handleModal);
   const text = createElement("div", "modal__content__text");
   const title = createElement("h3", undefined, product.name);
   const description = createElement("p", "medium desc", product.description);
 
-  sizePrice = parseFloat(product.price)
+  sizePrice = parseFloat(product.price);
 
   text.append(
     title,
@@ -64,7 +69,7 @@ export async function openModal(id: string, img: Node) {
     renderPrice(product.price),
     addToCartButton
   );
-  modalContent.append(img, text);
+  modalContent.append(closeButton, img, text);
   overlay.replaceChildren(modalContent);
 }
 

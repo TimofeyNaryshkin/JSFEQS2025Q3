@@ -11,7 +11,7 @@
 
 .overlay {
   .loader {
-    max-height: 504px;
+    max-height: 491px;
     max-width: 800px;
     position: static;
     border-radius: 40px;
@@ -31,8 +31,9 @@
 
 .modal__content {
   display: flex;
+  position: relative;
   width: 800px;
-  height: 504px;
+  height: max-content;
   padding: 16px;
   background-color: $color-background;
   border-radius: 40px;

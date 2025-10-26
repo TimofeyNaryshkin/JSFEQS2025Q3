@@ -207,11 +207,25 @@
   border-radius: 50%;
 }
 
-.button_modal_close {
+.button_add-to-cart {
   padding: 10px 0;
   max-width: 438px;
   width: 100%;
   border: 1px solid $color-border-second;
+}
+
+.button_modal_close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: transparent;
+  background-image: url(/icons/close.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid $color-border;
 }
 
 @keyframes rotate {
@@ -249,6 +263,15 @@
       width: 20px;
       opacity: 1;
     }
+  }
+
+  .button_modal_close:hover {
+    background-color: $color-text-accent;
+  }
+
+  .button_add-to-cart:hover {
+    background-color: $color-border-second;
+    color: $color-text-second;
   }
 
   .button_app:hover {
