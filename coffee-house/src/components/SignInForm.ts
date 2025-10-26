@@ -2,6 +2,7 @@ import { loginService } from "../services/auth-service";
 import type { LoginData } from "../types/auth";
 import { PLACEHOLDER, VALIDATION_RULES } from "../utils/constants";
 import createElement from "../utils/create-element";
+import { login, userState } from "../utils/state";
 
 const loginInput = createElement("input", "input input_login medium");
 const passwordInput = createElement("input", "input input_password medium");
@@ -53,7 +54,7 @@ export const SignInForm = () => {
   passwordInput.addEventListener("focus", resetPasswordValidation);
   signInButton.addEventListener("click", (e) => {
     e.preventDefault();
-    login({ login: loginInput.value, password: passwordInput.value });
+    signin({ login: loginInput.value, password: passwordInput.value });
   });
 };
 
@@ -91,12 +92,15 @@ const showPasswordValidationMessage = () => {
   passwordMessage.classList.remove("hidden");
 };
 
-const login = async (loginData: LoginData) => {
+const signin = async (loginData: LoginData) => {
   errorMessage.classList.add("hidden");
   const data = await loginService(loginData);
   if (!data) {
     showErrorMessage();
+    return;
   }
+  login()
+  window.location.replace('./menu.html')
 };
 
 const showErrorMessage = () => {
