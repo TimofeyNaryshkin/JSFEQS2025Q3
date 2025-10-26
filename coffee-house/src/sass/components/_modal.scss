@@ -9,6 +9,22 @@
   background-color: $color-background-backdrop;
 }
 
+.overlay {
+  .loader {
+    max-height: 504px;
+    max-width: 800px;
+    position: static;
+    border-radius: 40px;
+    @include media-tablet {
+      max-width: 688px;
+      max-height: 650px;
+    }
+    @include media-mobile {
+      max-width: 342px;
+    }
+  }
+}
+
 .overlay.opened {
   display: flex;
 }
