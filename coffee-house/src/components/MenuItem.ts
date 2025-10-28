@@ -16,7 +16,7 @@ export const MenuItem = (product: Product) => {
   const discountedPrice = createElement(
     "h3",
     "menu__item__price_discount hidden",
-    `$${product.discountPrice}`
+    `${product.discountPrice ? `$${product.discountPrice}` : ''}`
   );
 
   priceContainer.append(discountedPrice, price);

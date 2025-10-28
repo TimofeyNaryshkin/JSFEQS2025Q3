@@ -119,16 +119,11 @@ function attachEventListeners() {
 function handlePrices() {
   const userString = userState();
   if (userString === null) return;
-  const menuItemDiscountedPrice = document.querySelectorAll(
-    ".menu__item__price_discount"
-  );
-  const menuItemPrice = document.querySelectorAll(
-    ".menu__item__price_original"
-  );
-  menuItemPrice.forEach((el) =>
-    el.classList.toggle("line-through", !!userString)
-  );
-  menuItemDiscountedPrice.forEach((el) =>
-    el.classList.toggle("hidden", !userString)
-  );
+  const menuItemPrices = document.querySelectorAll(".menu__item__price");
+  menuItemPrices.forEach((el) => {
+    if (el.firstElementChild?.textContent && el.lastElementChild) {
+      el.firstElementChild.classList.toggle("hidden", !userString);
+      el.lastElementChild.classList.toggle("line-through", !!userString);
+    }
+  });
 }
