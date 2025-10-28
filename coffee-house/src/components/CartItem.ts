@@ -33,8 +33,8 @@ export const CartItem = (item: TCartItem) => {
     `$${item.discountPrice}`
   );
 
-  itemPrice.classList.toggle("line-through", userState.isLoggedIn);
-  itemDiscountPrice.classList.toggle("hidden", !userState.isLoggedIn);
+  itemPrice.classList.toggle("line-through", !!userState());
+  itemDiscountPrice.classList.toggle("hidden", !userState());
 
   itemDescription.append(itemTitle, itemOptions);
   itemPriceContainer.append(itemPrice, itemDiscountPrice);

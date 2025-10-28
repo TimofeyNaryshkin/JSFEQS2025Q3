@@ -4,6 +4,7 @@ import type { CityData, RegistrationData } from "../types/auth";
 import { PLACEHOLDER, VALIDATION_RULES } from "../utils/constants";
 import createElement from "../utils/create-element";
 import { login } from "../utils/state";
+import { handleLogin } from "./Cart";
 import { SelectOption } from "./SelectOption";
 
 const typedData: CityData = data;
@@ -241,16 +242,21 @@ const showValidationMessage = (element: Element, message: Element) => {
 
 const register = async (registrationData: RegistrationData) => {
   errorMessage.classList.add("hidden");
-  const data = await registrationService(registrationData);
-  if (data instanceof Error) {
-    showErrorMessage(data.message);
+  const response = await registrationService(registrationData);
+  if (!response) {
+    showErrorMessage('Unexpected error, please try again');
     return;
   }
-  if (data?.error) {
-    showErrorMessage(data.error);
+  if (response instanceof Error) {
+    showErrorMessage(response.message);
     return;
   }
-  login();
+  if (response?.error || !response.data) {
+    showErrorMessage(response.error);
+    return;
+  }
+  login(response.data);
+  handleLogin();
   window.location.replace("./menu.html");
 };
 

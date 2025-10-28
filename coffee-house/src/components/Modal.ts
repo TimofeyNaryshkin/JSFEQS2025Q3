@@ -182,7 +182,6 @@ function calcPrice() {
   if (totalPriceNode instanceof HTMLHeadingElement) {
     totalPriceNode.innerText = `$${totalPrice.original.toFixed(2)}`;
   }
-  console.log(totalPrice);
   return totalPrice;
 }
 

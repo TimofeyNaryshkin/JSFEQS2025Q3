@@ -2,6 +2,7 @@ import { productsService } from "../services/product-service";
 import type { Product } from "../types/product";
 import { ERROR_MSG } from "../utils/constants";
 import createElement from "../utils/create-element";
+import { userState } from "../utils/state";
 import Loader from "./Loader";
 import { MenuItem } from "./MenuItem";
 import { openModal } from "./Modal";
@@ -89,6 +90,7 @@ function renderMenuItems() {
     menuItemsContainer.replaceChildren(...menuItems);
     isLoaded = false;
   }
+  handlePrices();
 }
 
 function handleResize() {
@@ -112,4 +114,21 @@ function attachEventListeners() {
     const img = item.firstChild.cloneNode();
     openModal(itemId, img);
   });
+}
+
+function handlePrices() {
+  const userString = userState();
+  if (userString === null) return;
+  const menuItemDiscountedPrice = document.querySelectorAll(
+    ".menu__item__price_discount"
+  );
+  const menuItemPrice = document.querySelectorAll(
+    ".menu__item__price_original"
+  );
+  menuItemPrice.forEach((el) =>
+    el.classList.toggle("line-through", !!userString)
+  );
+  menuItemDiscountedPrice.forEach((el) =>
+    el.classList.toggle("hidden", !userString)
+  );
 }

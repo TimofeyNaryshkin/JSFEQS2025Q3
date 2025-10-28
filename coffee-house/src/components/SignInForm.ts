@@ -3,6 +3,7 @@ import type { LoginData } from "../types/auth";
 import { PLACEHOLDER, VALIDATION_RULES } from "../utils/constants";
 import createElement from "../utils/create-element";
 import { login } from "../utils/state";
+import { handleLogin } from "./Cart";
 
 const loginInput = createElement("input", "input input_login medium");
 const passwordInput = createElement("input", "input input_password medium");
@@ -52,9 +53,9 @@ export const SignInForm = () => {
   passwordInput.addEventListener("blur", validateSignInForm);
   loginInput.addEventListener("focus", resetLoginValidation);
   passwordInput.addEventListener("focus", resetPasswordValidation);
-  signInButton.addEventListener("click", (e) => {
+  signInButton.addEventListener("click", async (e) => {
     e.preventDefault();
-    signin({ login: loginInput.value, password: passwordInput.value });
+    await signin({ login: loginInput.value, password: passwordInput.value });
   });
 };
 
@@ -94,13 +95,14 @@ const showPasswordValidationMessage = () => {
 
 const signin = async (loginData: LoginData) => {
   errorMessage.classList.add("hidden");
-  const data = await loginService(loginData);
-  if (!data) {
+  const response = await loginService(loginData);
+  if (!response?.data || response.error) {
     showErrorMessage();
     return;
   }
-  login()
-  window.location.replace('./menu.html')
+  login(response?.data);
+  handleLogin();
+  window.location.replace("./menu.html");
 };
 
 const showErrorMessage = () => {

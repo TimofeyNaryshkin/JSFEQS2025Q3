@@ -11,11 +11,16 @@ export const MenuItem = (product: Product) => {
   const itemText = createElement("div", "menu__item__text");
   const name = createElement("h3", undefined, product.name);
   const description = createElement("p", "medium", product.description);
-  const price = createElement("h3", undefined, `$${product.price}`);
+  const priceContainer = createElement("div", "menu__item__price");
+  const price = createElement("h3", "menu__item__price_original", `$${product.price}`);
+  const discountedPrice = createElement(
+    "h3",
+    "menu__item__price_discount hidden",
+    `$${product.discountPrice}`
+  );
 
-  itemText.append(name);
-  itemText.append(description);
-  itemText.append(price);
+  priceContainer.append(discountedPrice, price);
+  itemText.append(name, description, priceContainer);
   item.append(itemImg);
   item.append(itemText);
 

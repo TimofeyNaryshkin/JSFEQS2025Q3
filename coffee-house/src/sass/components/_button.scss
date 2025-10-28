@@ -257,6 +257,12 @@
   width: 200px;
 }
 
+.button_confirm {
+  border: 1px solid $color-border-second;
+  padding: 10px 0;
+  width: 200px;
+}
+
 .button_cart.hidden {
   display: none;
 }
@@ -328,6 +334,11 @@
       width: 20px;
       opacity: 1;
     }
+  }
+
+  .button_confirm:hover {
+    background-color: $color-border-second;
+    color: $color-text-second;
   }
 
   .button_auth:hover {

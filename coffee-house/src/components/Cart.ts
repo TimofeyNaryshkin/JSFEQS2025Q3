@@ -1,3 +1,4 @@
+import type { RegistrationResponseData } from "../types/auth";
 import type { TCartItem } from "../types/cart";
 import createElement from "../utils/create-element";
 import { userState } from "../utils/state";
@@ -10,6 +11,14 @@ const cartWrapper = document.querySelector<HTMLDivElement>(".cart-wrapper");
 const cartList = createElement("div", "cart__list");
 const totalPrice = createElement("h3");
 const totalDicsountedPrice = createElement("h3");
+const userInfo = createElement("div", "cart__user-info hidden");
+const userAddress = createElement("h3");
+const userPayBy = createElement("h3");
+const confirmButton = createElement(
+  "button",
+  "button action button_confirm",
+  "Confirm"
+);
 
 const authButtons = AuthButtons();
 
@@ -32,12 +41,19 @@ export const Cart = () => {
   const cartTotal = createElement("div", "cart__total");
   const totalText = createElement("h3", undefined, "Total:");
   const cartPriceContainer = createElement("div", "cart__price-container");
+  const userAddressContainer = createElement("div", "cart__user-info__address");
+  const userPayByContainer = createElement("div", "cart__user-info__payby");
+  const userAddressText = createElement("h3", undefined, "Address:");
+  const userPayByText = createElement("h3", undefined, "Pay By:");
+  userAddressContainer.append(userAddressText, userAddress);
+  userPayByContainer.append(userPayByText, userPayBy);
+  userInfo.append(userAddressContainer, userPayByContainer);
 
   cartPriceContainer.append(totalPrice, totalDicsountedPrice);
   cartTotal.append(totalText, cartPriceContainer);
-  cartContainer.append(cartList, cartTotal);
+  cartContainer.append(cartList, cartTotal, userInfo);
 
-  cartWrapper.append(heading, cartContainer, authButtons);
+  cartWrapper.append(heading, cartContainer, authButtons, confirmButton);
 
   updateCart(getCartStorage());
 };
@@ -52,10 +68,10 @@ export const updateCart = (newCartStorage: string) => {
     countSpan.innerText = cartItems.length ? cartItems.length.toString() : "";
   }
 
-  cartButton.classList.toggle(
-    "hidden",
-    !userState.isLoggedIn && !cartItems.length
-  );
+  cartButton.classList.toggle("hidden", !userState() && !cartItems.length);
+  userInfo.classList.toggle("hidden", !userState());
+  confirmButton.classList.toggle("hidden", !userState() || !cartItems.length);
+  fillUserData();
 
   const cartItemsNodes = cartItems.map(CartItem);
   cartList.replaceChildren(...cartItemsNodes);
@@ -63,11 +79,14 @@ export const updateCart = (newCartStorage: string) => {
   totalPrice.innerText = `$${newPrice[0].toFixed(2)}`;
   totalDicsountedPrice.innerText = `$${newPrice[1].toFixed(2)}`;
 
-  authButtons.classList.toggle("hidden", userState.isLoggedIn);
-  totalPrice.classList.toggle("line-through", userState.isLoggedIn && newPrice[1] !== 0);
+  authButtons.classList.toggle("hidden", !!userState());
+  totalPrice.classList.toggle(
+    "line-through",
+    !!userState() && newPrice[1] !== 0
+  );
   totalDicsountedPrice.classList.toggle(
     "hidden",
-    !userState.isLoggedIn || newPrice[1] === 0
+    !userState() || newPrice[1] === 0
   );
 };
 
@@ -101,4 +120,26 @@ export const removeFromCart = (item: TCartItem) => {
     cartItems.filter((cartItem) => cartItem !== removedItem)
   );
   updateCart(newCartStorage);
+};
+
+export const handleLogin = () => {
+  const userString = userState();
+  if (userString === null) return;
+  authButtons.classList.toggle("hidden", !!userString);
+  cartButton.classList.toggle("hidden", !userString);
+  userInfo.classList.toggle("hidden", !userString);
+  confirmButton.classList.toggle("hidden", !userString);
+  fillUserData();
+};
+
+const fillUserData = () => {
+  const userString = userState();
+  if (userString === null) return;
+  const userData = JSON.parse(userString) as RegistrationResponseData;
+  const address = `${userData.user.city}, ${userData.user.street}, ${userData.user.houseNumber}`;
+  userAddress.textContent = address;
+  const payby =
+    userData.user.paymentMethod[0].toUpperCase() +
+    userData.user.paymentMethod.slice(1);
+  userPayBy.textContent = payby;
 };

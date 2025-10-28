@@ -37,6 +37,9 @@
 .menu__item {
   cursor: pointer;
   width: 310px;
+  height: 506px;
+  display: flex;
+  flex-direction: column;
   text-align: start;
   border: 1px solid $color-border;
   border-radius: 40px;
@@ -44,8 +47,8 @@
 
 .menu__item__text {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  justify-content: end;
   padding: 20px;
   .medium {
     margin: 12px 0;
@@ -58,6 +61,17 @@
   background-size: 110%;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.spacer {
+  flex: 1;
+  height: 100px;
+}
+
+.menu__item__price {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
 }
 
 @media (hover: hover) {

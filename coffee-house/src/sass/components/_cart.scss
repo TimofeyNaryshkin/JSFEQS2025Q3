@@ -63,3 +63,17 @@
   display: flex;
   gap: 20px;
 }
+
+.cart__user-info {
+  margin-left: 48px;
+}
+
+.cart__user-info__address {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart__user-info__payby {
+  display: flex;
+  justify-content: space-between;
+}

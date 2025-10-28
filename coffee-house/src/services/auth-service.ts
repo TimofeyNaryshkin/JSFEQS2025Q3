@@ -1,7 +1,7 @@
 import type {
   LoginData,
   RegistrationData,
-  RegistrationResponseData,
+  RegistrationResponseData
 } from "../types/auth";
 import type { ServerResponse } from "../types/response";
 import { BASE_URL, ENDPOINTS } from "../utils/constants";
@@ -18,9 +18,9 @@ export async function loginService(loginData: LoginData) {
         },
       }
     );
-    const serverResponse: ServerResponse<RegistrationData> =
+    const serverResponse: ServerResponse<RegistrationResponseData> =
       await response.json();
-    return serverResponse.data;
+    return serverResponse;
   } catch (error) {
     if (error instanceof Error) {
       return;
@@ -45,7 +45,7 @@ export async function registrationService(registrationData: RegistrationData) {
     return serverResponse;
   } catch (error) {
     if (error instanceof Error) {
-      return error;
+      return;
     }
   }
 }
