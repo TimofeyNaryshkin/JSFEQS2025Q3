@@ -3,3 +3,10 @@ export interface ServerResponse<T> {
   message: string;
   error: string;
 }
+
+export interface OrderResponse {
+  data: {
+    message: string
+    orderId: string
+  }
+}

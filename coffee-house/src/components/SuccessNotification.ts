@@ -1,9 +1,9 @@
-import { ERROR_MSG } from "../utils/constants";
+import { SUCCESS_MSG } from "../utils/constants";
 import createElement from "../utils/create-element";
 
-export const ErrorNotification = () => {
-  const errorNotification = createElement("div", "notification notification_error");
-  const errorText = createElement("h3", undefined, ERROR_MSG);
+export const SuccessNotification = () => {
+  const errorNotification = createElement("div", "notification notification_success");
+  const errorText = createElement("h3", undefined, SUCCESS_MSG);
   errorNotification.append(errorText);
   errorNotification.addEventListener("animationend", () => {
     errorNotification.classList.remove("visible");

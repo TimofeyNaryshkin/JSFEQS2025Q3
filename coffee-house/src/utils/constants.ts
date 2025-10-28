@@ -13,6 +13,8 @@ export const ENDPOINTS = {
 };
 
 export const ERROR_MSG = `Something went wrong. Please, refresh the page`;
+export const SUCCESS_MSG =
+  "Thank you for your order! Our manager will contact you shortly.";
 
 export const PLACEHOLDER = "Placeholder";
 

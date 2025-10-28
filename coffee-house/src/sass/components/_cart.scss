@@ -3,6 +3,14 @@
   margin: 20px 0 100px;
 }
 
+.cart-wrapper {
+  position: relative;
+  .loader {
+    background-color:transparent;
+    backdrop-filter: blur(3px);
+  }
+}
+
 .cart__container {
   margin: 40px 0;
 }

@@ -1,9 +1,14 @@
+import { orderService } from "../services/order-service";
 import type { RegistrationResponseData } from "../types/auth";
 import type { TCartItem } from "../types/cart";
+import type { OrderItem } from "../types/product";
 import createElement from "../utils/create-element";
 import { userState } from "../utils/state";
 import { AuthButtons } from "./AuthButtons";
 import { CartItem } from "./CartItem";
+import { ErrorNotification } from "./ErrorNotification";
+import Loader from "./Loader";
+import { SuccessNotification } from "./SuccessNotification";
 
 const getCartStorage = () => localStorage.getItem("cart") ?? "[]";
 const cartButton = createElement("a", "button_cart action hidden");
@@ -54,6 +59,8 @@ export const Cart = () => {
   cartContainer.append(cartList, cartTotal, userInfo);
 
   cartWrapper.append(heading, cartContainer, authButtons, confirmButton);
+
+  confirmButton.addEventListener("click", confirmOrder);
 
   updateCart(getCartStorage());
 };
@@ -122,6 +129,10 @@ export const removeFromCart = (item: TCartItem) => {
   updateCart(newCartStorage);
 };
 
+const clearCart = () => {
+  updateCart("[]");
+};
+
 export const handleLogin = () => {
   const userString = userState();
   if (userString === null) return;
@@ -142,4 +153,36 @@ const fillUserData = () => {
     userData.user.paymentMethod[0].toUpperCase() +
     userData.user.paymentMethod.slice(1);
   userPayBy.textContent = payby;
+};
+
+const confirmOrder = async () => {
+  const cartItems = JSON.parse(getCartStorage()) as TCartItem[];
+  const items: OrderItem[] = [];
+  let totalPrice = 0;
+  cartItems.forEach((item) => {
+    items.push({
+      productId: item.id,
+      size: item.size,
+      additives: item.extras,
+      quantity: 1,
+    });
+    totalPrice += parseFloat(item.discountPrice);
+  });
+
+  const loader = Loader();
+  cartWrapper?.append(loader);
+  const response = await orderService({ items, totalPrice });
+  loader.remove();
+
+  if (!response || !response.data) {
+    const errorNotification = ErrorNotification();
+    document.body.append(errorNotification);
+    errorNotification.classList.add("visible");
+    return;
+  }
+
+  clearCart();
+  const successNotification = SuccessNotification();
+  document.body.append(successNotification);
+  successNotification.classList.add("visible");
 };
