@@ -1,0 +1,11 @@
+.header {
+  margin: 20px 0;
+}
+
+.header__links-container {
+  display: flex;
+  gap: 32px;
+  @include media-nav-hide {
+    display: none;
+  }
+}

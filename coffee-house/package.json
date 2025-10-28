@@ -1,0 +1,24 @@
+{
+  "name": "coffee-house",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "style": "sass --watch sass/main.scss sass/style.css",
+    "lint": "eslint . --ignore-pattern dist/",
+    "lint:fix": "eslint . --fix --ignore-pattern dist/"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.38.0",
+    "@types/node": "^24.9.1",
+    "eslint": "^9.38.0",
+    "globals": "^16.4.0",
+    "sass-embedded": "^1.93.2",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.2",
+    "vite": "^7.1.7"
+  }
+}

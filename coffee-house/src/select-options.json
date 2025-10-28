@@ -1,0 +1,38 @@
+{
+  "New York": [
+    "5th Avenue",
+    "Broadway",
+    "Wall Street",
+    "Park Avenue",
+    "Madison Avenue",
+    "Lexington Avenue",
+    "3rd Avenue",
+    "2nd Avenue",
+    "1st Avenue",
+    "Avenue of the Americas"
+  ],
+  "Los Angeles": [
+    "Sunset Boulevard",
+    "Hollywood Boulevard",
+    "Wilshire Boulevard",
+    "Ventura Boulevard",
+    "Santa Monica Boulevard",
+    "Mulholland Drive",
+    "Rodeo Drive",
+    "Hollywood Way",
+    "Universal Boulevard",
+    "Lankershim Boulevard"
+  ],
+  "Chicago": [
+    "Michigan Avenue",
+    "State Street",
+    "Clark Street",
+    "Wisconsin Avenue",
+    "North Avenue",
+    "Division Street",
+    "Ontario Street",
+    "Grand Avenue",
+    "Ohio Street",
+    "Erie Street"
+  ]
+}

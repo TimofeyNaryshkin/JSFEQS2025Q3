@@ -1,0 +1,42 @@
+.registration {
+  margin: 20px 0 100px;
+}
+
+.registration-wrapper {
+  text-align: center;
+}
+
+.registration__form {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 40px 0;
+}
+
+.label_login {
+  margin-left: 56px;
+}
+
+.input_short {
+  width: 260px;
+}
+
+.label_pay-by {
+  gap: 18px;
+}
+
+.label_radio {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.radio-container {
+  display: flex;
+  gap: 24px;
+}
+
+.label_radio  {
+  max-width: 67px;
+  align-items: center;
+}

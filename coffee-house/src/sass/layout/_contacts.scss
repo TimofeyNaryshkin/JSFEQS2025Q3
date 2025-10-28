@@ -1,0 +1,88 @@
+.contacts {
+  margin-bottom: 40px;
+}
+
+.contacts-background {
+  background-color: $color-background-container;
+  padding: 100px;
+  justify-content: flex-start;
+  gap: 100px;
+  border-radius: 40px;
+}
+
+.socials {
+  max-width: 530px;
+}
+
+.cta {
+  h3 {
+    margin-bottom: 40px;
+  }
+  .tel {
+    margin: 16px 0;
+  }
+}
+
+.socials__buttons {
+  margin-top: 40px;
+  max-width: 204px;
+}
+
+.cta__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.icon_pin {
+  background-image: url(/icons/pin-alt.svg);
+}
+
+.icon_phone {
+  background-image: url(/icons/phone.svg);
+}
+
+.icon_clock {
+  background-image: url(/icons/clock.svg);
+}
+.cta {
+  .action {
+    max-width: fit-content;
+    position: relative;
+    display: flex;
+    gap: 8px;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      max-width: 100%;
+      width: 0%;
+      height: 2px;
+      background-color: $color-text-second;
+      transition: 0.3s ease-out;
+    }
+  }
+}
+
+@media (hover: hover) {
+  .cta {
+    .action:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+@include media-desktop {
+  .contacts-background {
+    padding: 100px 60px;
+    flex-direction: column;
+    gap: 100px;
+    align-items: flex-start;
+  }
+}
+
+@include media-mobile {
+  .contacts-background  {
+    padding: 60px 16px;
+    gap: 40px;
+  }
+}

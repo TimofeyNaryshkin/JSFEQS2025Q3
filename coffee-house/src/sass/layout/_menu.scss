@@ -1,0 +1,99 @@
+.menu {
+  text-align: center;
+  margin-bottom: 100px;
+  h2 {
+    max-width: 800px;
+    margin: 0 auto 40px;
+  }
+}
+
+.menu-wrapper {
+  position: relative;
+}
+
+.menu__categories {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+  @include media-mobile {
+    gap: 8px;
+  }
+}
+
+.menu__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  @include media-tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @include media-mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.menu__item {
+  cursor: pointer;
+  width: 310px;
+  height: 506px;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  border: 1px solid $color-border;
+  border-radius: 40px;
+}
+
+.menu__item__text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px;
+  .medium {
+    margin: 12px 0;
+  }
+}
+
+.menu__item__img {
+  height: 310px;
+  border-radius: 40px;
+  background-size: 110%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.spacer {
+  flex: 1;
+  height: 100px;
+}
+
+.menu__item__price {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}
+
+@media (hover: hover) {
+  .menu__item:hover .menu__item__img {
+    background-size: 100%;
+  }
+}
+
+@for $i from 1 through 8 {
+  .coffee_#{$i} {
+    background-image: url(/img/coffee-#{$i}.png);
+  }
+}
+
+@for $i from 9 through 30 {
+  .tea_#{$i} {
+    background-image: url(/img/tea-#{$i}.png);
+  }
+}
+
+@for $i from 17 through 32 {
+  .dessert_#{$i} {
+    background-image: url(/img/dessert-#{$i}.png);
+  }
+}

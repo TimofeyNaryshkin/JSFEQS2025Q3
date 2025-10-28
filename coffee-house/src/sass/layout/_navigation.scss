@@ -1,0 +1,8 @@
+.nav {
+  .flex-container {
+    gap: 40px;
+  }
+  @include media-nav-hide {
+    display: none;
+  }
+}
