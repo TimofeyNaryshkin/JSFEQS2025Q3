@@ -11,12 +11,16 @@
 
   --color-border: #c1b6ad;
   --color-border-second: #665f55;
-
-  --background: var(--color-bg);
-  --foreground: var(--color-text);
 }
 
-@media (prefers-color-scheme: dark) {
+@theme inline {
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: light) {
   :root {
     --background: var(--color-bg-container);
     --foreground: var(--color-bg);
