@@ -20,6 +20,7 @@ export const ru: LanguagesObjType = {
     cta: "Свяжитесь с нами",
   },
   mainPage: {
+    menu: "Меню",
     enjoyHeadingAcccent: "Наслаждайтесь",
     enjoyHeading: " премиальным кофе в нашем уютном кафе",
     enjoyText:

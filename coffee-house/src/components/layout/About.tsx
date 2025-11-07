@@ -6,7 +6,6 @@ interface Props {
     aboutHeading2: string
     aboutHeadingAccent: string
   }
-
 }
 
 export default function About({ localeText: t }: Props) {

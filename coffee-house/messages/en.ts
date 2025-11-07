@@ -18,6 +18,7 @@ export const en = {
     cta: "Contact us",
   },
   mainPage: {
+    menu: "Menu",
     enjoyHeading: " premium coffee at our charming cafe",
     enjoyHeadingAcccent: "Enjoy",
     enjoyText:
