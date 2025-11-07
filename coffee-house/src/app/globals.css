@@ -40,14 +40,27 @@ body {
   h3,
   a {
     color: var(--color-text-second);
-    i {
-      color: var(--color-text-accent);
-    }
   }
 }
 
 .contacts-bg {
   background: var(--color-bg-container);
+}
+
+i {
+  color: var(--color-text-accent);
+}
+
+.hero {
+  h1, .medium {
+    color: var(--color-text-second);
+  }
+}
+
+h1 {
+  font-size: 4.5rem;
+  line-height: 105%;
+  font-weight: 600;
 }
 
 h2 {
@@ -66,6 +79,12 @@ a {
   font-size: 1rem;
   line-height: 175%;
   font-weight: 600;
+}
+
+.medium {
+  font-size: 1rem;
+  line-height: 150%;
+  font-weight: 400;
 }
 
 .wrapper {

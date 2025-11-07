@@ -18,7 +18,8 @@ export const en = {
     cta: "Contact us",
   },
   mainPage: {
-    enjoy: "Enjoy premium coffee at our charming cafe",
+    enjoyHeading: " premium coffee at our charming cafe",
+    enjoyHeadingAcccent: 'Enjoy',
     enjoyText:
       "With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite beverage. ",
     chooseCoffeeHeading: "Choose your favorite coffee",
