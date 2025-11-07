@@ -22,7 +22,7 @@ export default async function Nav() {
           <Link href='/#mobile-app' className={linkStyle}>{t.mobileApp}</Link>
         </li>
         <li>
-          <Link href='#contact' className={linkStyle}>{t.cta}</Link>
+          <Link href='#contacts' className={linkStyle}>{t.cta}</Link>
         </li>
       </ul>
     </nav>

@@ -27,7 +27,13 @@ export const en = {
     mobileAppHeading: "Download our apps to start ordering",
     mobileAppText:
       "Download the Resource app today and experience the comfort of ordering your favorite coffee from wherever you are ",
-    footerHeading: "Sip, Savor, Smile. It’s coffee time!",
+  },
+  footer: {
+    footerHeading: "Sip, Savor, Smile.",
+    footerHeadingAccent: "It’s coffee time!",
+    address: "8558 Green Rd., LA ",
+    workingHours: "Mon-Sat: 9:00 AM – 23:00 PM",
+    cta: "Contact us"
   },
   menuPage: {
     menuHeading: "Behind each of our cups hides an amazing surprise",

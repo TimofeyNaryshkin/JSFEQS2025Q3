@@ -1,3 +1,4 @@
+import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header/Header';
 import { routing } from '@/i18n/routing';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
@@ -24,6 +25,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <main>
         {children}
       </main>
+      <Footer />
     </NextIntlClientProvider>
   )
 }
