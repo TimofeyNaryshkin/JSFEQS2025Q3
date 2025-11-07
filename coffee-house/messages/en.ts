@@ -25,12 +25,14 @@ export const en = {
       "With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite beverage. ",
     chooseCoffeeHeading: "Choose your favorite coffee",
     aboutHeadingAccent: "the perfect and cozy place",
-    aboutHeading1:
-      "Resource is ",
-    aboutHeading2: " where you can enjoy a variety of hot beverages, relax, catch up with friends, or get some work done.",
-    mobileAppHeading: "Download our apps to start ordering",
+    aboutHeading1: "Resource is ",
+    aboutHeading2:
+      " where you can enjoy a variety of hot beverages, relax, catch up with friends, or get some work done.",
+    mobileAppHeading: " our apps to start ordering",
+    mobileAppHeadingAccent: "Download",
     mobileAppText:
       "Download the Resource app today and experience the comfort of ordering your favorite coffee from wherever you are ",
+    availableOn: 'Available on'
   },
   footer: {
     footerHeading: "Sip, Savor, Smile.",

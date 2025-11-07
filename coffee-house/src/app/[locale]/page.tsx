@@ -1,5 +1,6 @@
 import About from "@/components/layout/About";
 import Hero from "@/components/layout/Hero";
+import MobileApp from "@/components/layout/MobileApp";
 import translate from "@/i18n/langSwitcher";
 import { getLocale } from "next-intl/server";
 
@@ -11,6 +12,7 @@ export default async function Home() {
     <>
       <Hero localeText={t} />
       <About localeText={t} />
+      <MobileApp localeText={t}/>
     </>
   );
 }

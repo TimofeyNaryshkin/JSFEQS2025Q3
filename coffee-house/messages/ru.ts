@@ -30,9 +30,11 @@ export const ru: LanguagesObjType = {
     aboutHeading1: "Resource — ",
     aboutHeading2:
       ", где вы можете насладиться разнообразными горячими напитками, расслабиться, встретиться с друзьями или поработать.",
-    mobileAppHeading: "Скачайте наше приложение, чтобы начать заказывать",
+    mobileAppHeading: " наше приложение, чтобы начать заказывать",
+    mobileAppHeadingAccent: "Скачайте",
     mobileAppText:
       "Скачайте приложение Resource сегодня и почувствуйте комфорт заказа любимого кофе откуда угодно.",
+    availableOn: 'Доступно в',
   },
   footer: {
     footerHeading: "Пейте, наслаждайтесь, улыбайтесь.",
