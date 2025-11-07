@@ -19,12 +19,14 @@ export const en = {
   },
   mainPage: {
     enjoyHeading: " premium coffee at our charming cafe",
-    enjoyHeadingAcccent: 'Enjoy',
+    enjoyHeadingAcccent: "Enjoy",
     enjoyText:
       "With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite beverage. ",
     chooseCoffeeHeading: "Choose your favorite coffee",
-    aboutHeading:
-      "Resource is the perfect and cozy place where you can enjoy a variety of hot beverages, relax, catch up with friends, or get some work done. ",
+    aboutHeadingAccent: "the perfect and cozy place",
+    aboutHeading1:
+      "Resource is ",
+    aboutHeading2: " where you can enjoy a variety of hot beverages, relax, catch up with friends, or get some work done.",
     mobileAppHeading: "Download our apps to start ordering",
     mobileAppText:
       "Download the Resource app today and experience the comfort of ordering your favorite coffee from wherever you are ",
@@ -34,7 +36,7 @@ export const en = {
     footerHeadingAccent: "It’s coffee time!",
     address: "8558 Green Rd., LA ",
     workingHours: "Mon-Sat: 9:00 AM – 23:00 PM",
-    cta: "Contact us"
+    cta: "Contact us",
   },
   menuPage: {
     menuHeading: "Behind each of our cups hides an amazing surprise",

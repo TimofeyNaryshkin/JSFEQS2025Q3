@@ -1,6 +1,8 @@
+import About from "@/components/layout/About";
 import translate from "@/i18n/langSwitcher";
 import { Coffee } from "lucide-react";
 import { getLocale } from "next-intl/server";
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function Home() {
@@ -9,7 +11,7 @@ export default async function Home() {
 
   return (
     <>
-      <section className="hero">
+      <section className="hero mb-[100px]">
         <div className="wrapper relative">
           <video className="rounded-[40px]" src='/video/hero-video.mp4' autoPlay muted loop>
             Oops something went wrong
@@ -21,6 +23,7 @@ export default async function Home() {
           </div>
         </div>
       </section>
+      <About localeText={t}/>
     </>
   );
 }
