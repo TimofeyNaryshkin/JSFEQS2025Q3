@@ -10,8 +10,8 @@ export default async function Header() {
       <Logo />
       <Nav />
       <div className="flex gap-8 items-center">
-        <Link href='/cart' className="flex gap-2 relative transition-colors after:absolute after:top-5 after:left-0 after:h-0.5 after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"><ShoppingBag width={20} height={20} /></Link>
-        <Link href='/menu' className="flex gap-2 relative transition-colors after:absolute after:top-5 after:left-0 after:h-0.5 after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">Menu<Coffee width={20} height={20} /></Link>
+        <Link href='/cart' className="flex gap-2 relative transition-colors after:absolute after:top-5.5 after:left-0 after:h-0.5 after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"><ShoppingBag width={20} height={20} /></Link>
+        <Link href='/menu' className="flex gap-2 relative transition-colors after:absolute after:top-5.5 after:left-0 after:h-0.5 after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">Menu<Coffee width={20} height={20} /></Link>
         <BurgerIcon />
       </div>
     </header>
