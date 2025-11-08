@@ -46,7 +46,8 @@ export const ru: LanguagesObjType = {
     cta: "Свяжитесь с нами",
   },
   menuPage: {
-    menuHeading: "За каждой нашей чашкой скрывается удивительный сюрприз",
+    menuHeading: "За каждой нашей чашкой скрывается ",
+    menuHeadingAccent: "удивительный сюрприз",
     coffee: "Кофе",
     tea: "Чай",
     dessert: "Десерт",

@@ -1,7 +1,7 @@
-import About from "@/components/layout/About";
-import FavoriteCoffee from "@/components/layout/FavoriteCoffee";
-import Hero from "@/components/layout/Hero";
-import MobileApp from "@/components/layout/MobileApp";
+import About from "@/components/main/About";
+import FavoriteCoffee from "@/components/main/FavoriteCoffee";
+import Hero from "@/components/main/Hero";
+import MobileApp from "@/components/main/MobileApp";
 import translate from "@/i18n/langSwitcher";
 import { getLocale } from "next-intl/server";
 

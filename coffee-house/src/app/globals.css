@@ -94,6 +94,12 @@ a {
   font-weight: 600;
 }
 
+.action {
+  font-size: 1rem;
+  line-height: 175%;
+  font-weight: 600;
+}
+
 .wrapper {
   margin: 0 auto;
   max-width: var(--content-width);

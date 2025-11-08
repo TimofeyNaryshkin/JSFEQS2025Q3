@@ -44,7 +44,8 @@ export const en = {
     cta: "Contact us",
   },
   menuPage: {
-    menuHeading: "Behind each of our cups hides an amazing surprise",
+    menuHeading: "Behind each of our cups hides an ",
+    menuHeadingAccent: "amazing surprise",
     coffee: "Coffee",
     tea: "Tea",
     dessert: "Dessert",

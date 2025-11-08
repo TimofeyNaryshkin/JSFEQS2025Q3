@@ -21,11 +21,12 @@ export async function productsService() {
   try {
     const response = await fetch(`${BASE_URL + ENDPOINTS.PRODUCTS}`);
     const serverResponse: ServerResponse<Product[]> = await response.json();
+    if (!serverResponse.data) {
+      throw new Error("No data received");
+    }
     return serverResponse.data;
   } catch (error) {
-    if (error instanceof Error) {
-      return [];
-    }
+    return [];
   }
 }
 

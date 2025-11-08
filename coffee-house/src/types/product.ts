@@ -33,6 +33,8 @@ export interface Additive {
 
 export type Sizes = "s" | "m" | "l" | "xl" | "xxl";
 
+export type Category = "coffee" | "tea" | "dessert";
+
 export type ProductSizes = Record<Sizes, Size>;
 
 export interface ProductDetails extends Product {

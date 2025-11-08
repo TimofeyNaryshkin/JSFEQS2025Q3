@@ -4,7 +4,6 @@ import { Product } from "@/types/product";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/autoplay';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { use } from "react";
@@ -35,7 +34,7 @@ export default function MySwiper({ items }: Props) {
       navigation
       loop
     >
-      {products.map((p) => <SwiperSlide ><SwiperCard product={p} /></SwiperSlide>)}
+      {products.map((p) => <SwiperSlide key={p.id}><SwiperCard product={p} /></SwiperSlide>)}
     </Swiper>
   )
 }
