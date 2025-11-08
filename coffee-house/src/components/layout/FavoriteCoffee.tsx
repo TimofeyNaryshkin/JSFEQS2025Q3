@@ -1,6 +1,7 @@
 import { favoriteProductsService } from "@/services/product-service"
 import { Suspense } from "react"
 import MySwiper from "../ui/MySwiper"
+import Loader from "../ui/Loader"
 
 interface Props {
   localeText: {
@@ -21,9 +22,11 @@ export default function FavoriteCoffee({ localeText: t }: Props) {
           <i>{t.chooseCoffeeHeadingAccent}</i>
           {t.chooseCoffeeHeading2}
         </h2>
-        <Suspense fallback>
-          <MySwiper items={favoriteProducts}/>
-        </Suspense>
+        <div className="h-[660px] flex items-center justify-center">
+          <Suspense fallback={<Loader />}>
+            <MySwiper items={favoriteProducts} />
+          </Suspense>
+        </div>
       </div>
     </section>
   )

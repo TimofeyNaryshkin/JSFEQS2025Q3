@@ -17,6 +17,11 @@ interface Props {
 export default function MySwiper({ items }: Props) {
   const products = use(items)
 
+  if (!products.length) {
+    return (
+      <h3 className="text-center">Something went wrong. Please, refresh the page</h3>
+    )
+  }
 
   return (
     <Swiper
