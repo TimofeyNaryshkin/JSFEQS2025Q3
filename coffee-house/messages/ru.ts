@@ -25,7 +25,9 @@ export const ru: LanguagesObjType = {
     enjoyHeading: " премиальным кофе в нашем уютном кафе",
     enjoyText:
       "С гостеприимной атмосферой и восхитительным выбором кофе, Coffee House Resource — популярное место для любителей кофе и тех, кто ищет теплое и уютное пространство, чтобы насладиться любимым напитком.",
-    chooseCoffeeHeading: "Выберите свой любимый кофе",
+    chooseCoffeeHeading1: "Выберите свой ",
+    chooseCoffeeHeadingAccent: "любимый",
+    chooseCoffeeHeading2: " кофе",
     aboutHeadingAccent: "это идеальное и уютное место",
     aboutHeading1: "Resource — ",
     aboutHeading2:

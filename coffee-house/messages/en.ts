@@ -23,7 +23,9 @@ export const en = {
     enjoyHeadingAcccent: "Enjoy",
     enjoyText:
       "With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm and inviting space to enjoy their favorite beverage. ",
-    chooseCoffeeHeading: "Choose your favorite coffee",
+    chooseCoffeeHeading1: "Choose your ",
+    chooseCoffeeHeadingAccent: "favorite",
+    chooseCoffeeHeading2: " coffee",
     aboutHeadingAccent: "the perfect and cozy place",
     aboutHeading1: "Resource is ",
     aboutHeading2:
@@ -32,7 +34,7 @@ export const en = {
     mobileAppHeadingAccent: "Download",
     mobileAppText:
       "Download the Resource app today and experience the comfort of ordering your favorite coffee from wherever you are ",
-    availableOn: 'Available on'
+    availableOn: "Available on",
   },
   footer: {
     footerHeading: "Sip, Savor, Smile.",

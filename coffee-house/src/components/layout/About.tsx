@@ -10,7 +10,7 @@ interface Props {
 
 export default function About({ localeText: t }: Props) {
   return (
-    <section id="about" className="mb-[100px]">
+    <section id="about" className="my-[100px]">
       <div className="wrapper">
         <h2>{t.aboutHeading1}<i>{t.aboutHeadingAccent}</i>{t.aboutHeading2}</h2>
         <div className="flex flex-col gap-10 flex-wrap max-h-[1060px] mt-10">

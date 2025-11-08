@@ -52,7 +52,8 @@ i {
 }
 
 .hero {
-  h1, .medium {
+  h1,
+  .medium {
     color: var(--color-text-second);
   }
 }
@@ -97,4 +98,17 @@ a {
   margin: 0 auto;
   max-width: var(--content-width);
   padding: 0 40px;
+}
+
+.swiper-navigation-icon > * {
+  fill: var(--color-border-second) !important;
+}
+
+.swiper-pagination-progressbar-fill {
+  background-color: var(--color-border-second) !important;
+}
+
+.swiper-pagination {
+  top: auto !important;
+  bottom: 0;
 }

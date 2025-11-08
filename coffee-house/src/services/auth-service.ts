@@ -1,0 +1,51 @@
+import { BASE_URL, ENDPOINTS } from "@/constants";
+import type {
+  LoginData,
+  RegistrationData,
+  RegistrationResponseData,
+} from "../types/auth";
+import type { ServerResponse } from "../types/response";
+
+export async function loginService(loginData: LoginData) {
+  try {
+    const response = await fetch(
+      `${BASE_URL + ENDPOINTS.AUTH + ENDPOINTS.LOGIN}`,
+      {
+        body: JSON.stringify(loginData),
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const serverResponse: ServerResponse<RegistrationResponseData> =
+      await response.json();
+    return serverResponse;
+  } catch (error) {
+    if (error instanceof Error) {
+      return;
+    }
+  }
+}
+
+export async function registrationService(registrationData: RegistrationData) {
+  try {
+    const response = await fetch(
+      `${BASE_URL + ENDPOINTS.AUTH + ENDPOINTS.REGISTER}`,
+      {
+        body: JSON.stringify(registrationData),
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const serverResponse: ServerResponse<RegistrationResponseData> =
+      await response.json();
+    return serverResponse;
+  } catch (error) {
+    if (error instanceof Error) {
+      return;
+    }
+  }
+}
