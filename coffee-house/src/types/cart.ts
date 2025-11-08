@@ -1,4 +1,4 @@
-import type { Sizes } from "./product";
+import type { Additive, Size, Sizes } from "./product";
 
 export interface TCartItem {
   id: number;
@@ -6,8 +6,13 @@ export interface TCartItem {
   categoty: string;
   size: string;
   extras: string[];
-  prise: string;
+  price: string;
   discountPrice: string;
+}
+
+export interface ModalItem extends Omit<TCartItem, 'size' | 'extras'> {
+  size: Size
+  extras: Additive[]
 }
 
 export interface OrderItem {
