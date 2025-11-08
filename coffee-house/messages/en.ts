@@ -49,6 +49,11 @@ export const en = {
     coffee: "Coffee",
     tea: "Tea",
     dessert: "Dessert",
+  },
+  modal: {
+    size: "Size",
+    additives: "Additives",
+    total: "Total",
     addToCart: "Add to cart",
   },
   cartPage: {
@@ -57,7 +62,8 @@ export const en = {
   messages: {
     thxForOrder:
       "Thank you for your order! Our manager will contact you shortly.",
-    smthWentWrong: "Something went wrong. Please, refresh the page",
+    smthWentWrongReload: "Something went wrong. Please, refresh the page",
+    smthWentWrongTryAgain: "Something went wrong. Please, try again",
   },
   auth: {
     login: "Login",

@@ -36,7 +36,7 @@ export const ru: LanguagesObjType = {
     mobileAppHeadingAccent: "Скачайте",
     mobileAppText:
       "Скачайте приложение Resource сегодня и почувствуйте комфорт заказа любимого кофе откуда угодно.",
-    availableOn: 'Доступно в',
+    availableOn: "Доступно в",
   },
   footer: {
     footerHeading: "Пейте, наслаждайтесь, улыбайтесь.",
@@ -51,6 +51,11 @@ export const ru: LanguagesObjType = {
     coffee: "Кофе",
     tea: "Чай",
     dessert: "Десерт",
+  },
+  modal: {
+    size: "Размер",
+    additives: "Добавки",
+    total: "Итого",
     addToCart: "Добавить в корзину",
   },
   cartPage: {
@@ -59,7 +64,8 @@ export const ru: LanguagesObjType = {
   messages: {
     thxForOrder:
       "Спасибо за ваш заказ! Наш менеджер свяжется с вами в ближайшее время.",
-    smthWentWrong: "Что-то пошло не так. Пожалуйста, обновите страницу",
+    smthWentWrongReload: "Что-то пошло не так. Пожалуйста, обновите страницу",
+    smthWentWrongTryAgain: "Что-то пошло не так. Пожалуйста, попробуйте снова",
   },
   auth: {
     login: "Логин",

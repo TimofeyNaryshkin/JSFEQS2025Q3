@@ -30,15 +30,13 @@ export async function productsService() {
   }
 }
 
-export async function productByIdService(id: string) {
+export async function productByIdService(id: number) {
   try {
     const response = await fetch(`${BASE_URL + ENDPOINTS.PRODUCTS}/${id}`);
     const serverResponse: ServerResponse<ProductDetails> =
       await response.json();
     return serverResponse.data;
   } catch (error) {
-    if (error instanceof Error) {
-      return;
-    }
+    return;
   }
 }

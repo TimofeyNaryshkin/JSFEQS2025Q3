@@ -14,14 +14,15 @@ interface Props {
 export default function Menu({ products }: Props) {
   const categories: Category[] = ['coffee', 'tea', 'dessert']
   const [category, setCategory] = useState<Category>(categories[0]);
+  
   const menuProducts = use(products)
 
   const locale = useLocale()
-  const { menuPage: t } = translate(locale)
+  const { menuPage: t, messages: m } = translate(locale)
 
   if (!menuProducts.length) {
     return (
-      <h3 className="text-center">Something went wrong. Please, refresh the page</h3>
+      <h3 className="text-center">{m.smthWentWrongReload}</h3>
     )
   }
 

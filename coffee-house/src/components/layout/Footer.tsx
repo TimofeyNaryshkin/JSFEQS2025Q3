@@ -12,7 +12,7 @@ export default async function Footer() {
   const ctaLinkStyle = 'flex gap-2 max-w-fit mb-4 relative transition-colors after:absolute after:top-6 after:left-0 after:h-0.5 after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full'
 
   return (
-    <footer className="footer">
+    <footer className="footer mb-10">
       <section id="contacts" >
         <div className="wrapper">
           <div className="contacts-bg flex p-25 gap-25 rounded-[40px] justify-start items-center">

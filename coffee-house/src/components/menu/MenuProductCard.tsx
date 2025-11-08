@@ -3,11 +3,12 @@ import Image from "next/image";
 
 interface Props {
   product: Product
+  onClick: () => void
 }
 
-export default function MenuProductCard({ product }: Props) {
+export default function MenuProductCard({ product, onClick }: Props) {
   return (
-    <div className="cursor-pointer w-[310px] h-[506px] flex flex-col text-start border border-(--color-border) rounded-[40px] overflow-hidden group">
+    <div onClick={onClick} className="cursor-pointer w-[310px] h-[506px] flex flex-col text-start border border-(--color-border) rounded-[40px] overflow-hidden group">
       <div className="relative w-[310px] h-[310px] rounded-[40px] overflow-hidden">
         <Image src={`/img/${product.category}-${product.id}.png`} alt={`${product.name} image`} fill
           className="object-cover scale-110 transition-transform duration-300 group-hover:scale-100" />

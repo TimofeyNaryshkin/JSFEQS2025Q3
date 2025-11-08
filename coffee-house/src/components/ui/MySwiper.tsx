@@ -8,6 +8,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { use } from "react";
 import SwiperCard from "./SwiperCard";
+import { useLocale } from "next-intl";
+import translate from "@/i18n/langSwitcher";
 
 interface Props {
   items: Promise<Product[]>
@@ -16,9 +18,12 @@ interface Props {
 export default function MySwiper({ items }: Props) {
   const products = use(items)
 
+  const locale = useLocale()
+  const { messages: m } = translate(locale)
+
   if (!products.length) {
     return (
-      <h3 className="text-center">Something went wrong. Please, refresh the page</h3>
+      <h3 className="text-center">{m.smthWentWrongReload}</h3>
     )
   }
 
