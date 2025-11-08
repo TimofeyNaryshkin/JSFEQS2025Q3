@@ -1,16 +1,21 @@
-'use client'
-
-import { Product } from "@/types/product"
-import { use } from "react"
+import { Category, Product } from "@/types/product"
+import MenuProductCard from "./MenuProductCard"
+import { useMemo } from "react"
 
 interface Props {
-  items: Promise<Product[]>
+  products: Product[]
+  currentCategory: Category
 }
 
-export default function MenuProducts({ items }: Props) {
-  const products = use(items)
+export default function MenuProducts({ products, currentCategory }: Props) {
+
+  const filteredProducts = useMemo(() => {
+    return products.filter((p) => p.category === currentCategory)
+  }, [products, currentCategory])
 
   return (
-    products.map((p) => '')
+    <div className="flex flex-wrap gap-10 justify-center">
+      {filteredProducts.map((p) => <MenuProductCard key={p.id} product={p} />)}
+    </div>
   )
 }

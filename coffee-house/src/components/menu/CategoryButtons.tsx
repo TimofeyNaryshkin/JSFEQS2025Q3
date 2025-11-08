@@ -13,7 +13,7 @@ interface Props {
 export default function CategoryButtons({ categories, currentCategory, localeText, onClick }: Props) {
 
   return (
-    <div className="flex gap-4 justify-center">
+    <div className="flex gap-4 justify-center mb-10">
       {categories.map((c) =>
         <CategoryButton
           key={c}
