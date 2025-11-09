@@ -59,7 +59,7 @@ export const en = {
   cartPage: {
     cartHeading: "Cart",
     total: "Total",
-    address: 'Address',
+    address: "Address",
     payBy: "Pay by",
   },
   messages: {
@@ -69,6 +69,8 @@ export const en = {
     smthWentWrongTryAgain: "Something went wrong. Please, try again",
   },
   auth: {
+    placeholder: "Placeholder",
+    signIn: "Sign In",
     login: "Login",
     password: "Password",
     confirmPassword: "Confirm password",
@@ -84,11 +86,13 @@ export const en = {
     link: "Go to Main",
   },
   validations: {
-    required: "Required field",
-    nameCapitalized: "Name must start with a capital letter",
-    emailInvalid: "Invalid email address",
-    passwordMinLength: "Password must be at least 8 characters long",
-    passwordStrength: "Must include: 0-9, A-Z, a-z & special character",
+    invalid: 'Incorrect login or password',
+    loginRequired: "Please enter your login",
+    passwordRequired: "Please enter your password",
+    login:
+      "Login must be at least 3 characters, start with a letter, and contain only letters and numbers",
+    password:
+      "Password must be at least 6 characters and contain at least one special character (!@#$%^&*=)",
     passwordsMustMatch: "Passwords must match",
   },
   errors: {

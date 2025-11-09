@@ -19,6 +19,6 @@ export const SUCCESS_MSG =
 export const PLACEHOLDER = "Placeholder";
 
 export const VALIDATION_RULES = {
-  loginPattern: "^[a-zA-Z][a-zA-Z0-9]{2,}$",
-  passwordPattern: "^(?=.{6,})(?=.*[!@#$%^&*=]).+$",
+  loginPattern: /^[a-zA-Z][a-zA-Z0-9]{2,}$/,
+  passwordPattern: /^(?=.{6,})(?=.*[!@#$%^&*=]).+$/,
 };

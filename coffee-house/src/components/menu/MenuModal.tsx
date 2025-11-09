@@ -145,7 +145,6 @@ export default function MenuModal({ onClick, productId }: Props) {
                 <div className="flex justify-between mb-5">
                   <h3>{t.total}</h3>
                   <h3>${cartItem.price}</h3>
-                  <h3>${cartItem.discountPrice}</h3>
                 </div>
                 <button onClick={handleAddToCartButton} className="border py-2.5 max-w-[438px] w-full rounded-[100px] cursor-pointer action">{t.addToCart}</button>
               </div>

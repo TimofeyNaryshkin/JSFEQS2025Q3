@@ -61,7 +61,7 @@ export const ru: LanguagesObjType = {
   cartPage: {
     cartHeading: "Корзина",
     total: "Итого",
-    address: 'Адрес',
+    address: "Адрес",
     payBy: "Оплата",
   },
   messages: {
@@ -71,6 +71,8 @@ export const ru: LanguagesObjType = {
     smthWentWrongTryAgain: "Что-то пошло не так. Пожалуйста, попробуйте снова",
   },
   auth: {
+    placeholder: "Подсказка ",
+    signIn: "Войти",
     login: "Логин",
     password: "Пароль",
     confirmPassword: "Подтвердите пароль",
@@ -86,11 +88,13 @@ export const ru: LanguagesObjType = {
     link: "Перейти на главную",
   },
   validations: {
-    required: "Обязательное поле",
-    nameCapitalized: "Имя должно начинаться с заглавной буквы",
-    emailInvalid: "Неверный адрес электронной почты",
-    passwordMinLength: "Пароль должен содержать не менее 8 символов",
-    passwordStrength: "Должен включать: 0-9, A-Z, a-z и спецсимвол",
+    invalid: 'Неверный логин или пароль',
+    loginRequired: "Введите логин",
+    passwordRequired: "Введите пароль",
+    login:
+      "Логин должен содержать минимум 3 символа, начинаться с буквы и содержать только латинские буквы и цифры",
+    password:
+      "Пароль должен содержать минимум 6 символов и хотя бы один специальный символ (!@#$%^&*=)",
     passwordsMustMatch: "Пароли должны совпадать",
   },
   errors: {
