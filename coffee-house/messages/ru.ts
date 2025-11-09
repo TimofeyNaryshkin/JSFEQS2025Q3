@@ -60,6 +60,9 @@ export const ru: LanguagesObjType = {
   },
   cartPage: {
     cartHeading: "Корзина",
+    total: "Итого",
+    address: 'Адрес',
+    payBy: "Оплата",
   },
   messages: {
     thxForOrder:

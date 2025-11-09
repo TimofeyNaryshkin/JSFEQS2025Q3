@@ -15,9 +15,7 @@ const useCartStore = create<CartState>()(
       addToCart: (item) => set((state) => ({ items: [...state.items, item] })),
       removeFromCart: (item) =>
         set((state) => ({
-          items: state.items.filter(
-            (i) => i.id !== item.id && i.price !== item.price
-          ),
+          items: state.items.filter((i) => i !== item),
         })),
       cleanCart: () => set({ items: [] }),
     }),

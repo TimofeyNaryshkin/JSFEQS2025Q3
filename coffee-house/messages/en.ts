@@ -58,6 +58,9 @@ export const en = {
   },
   cartPage: {
     cartHeading: "Cart",
+    total: "Total",
+    address: 'Address',
+    payBy: "Pay by",
   },
   messages: {
     thxForOrder:
