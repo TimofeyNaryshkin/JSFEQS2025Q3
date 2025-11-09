@@ -7,6 +7,7 @@ import { useLocale } from "next-intl"
 import translate from "@/i18n/langSwitcher"
 import ModalButton from "../ui/ModalButton"
 import { ModalItem, TCartItem } from "@/types/cart"
+import useCartStore from "@/store/cartStore"
 
 interface Props {
   productId: number
@@ -19,7 +20,7 @@ export default function MenuModal({ onClick, productId }: Props) {
   const [cartItem, setCartItem] = useState<ModalItem>({
     id: 0,
     name: '',
-    categoty: '',
+    category: '',
     size: {
       size: '',
       price: '',
@@ -29,6 +30,8 @@ export default function MenuModal({ onClick, productId }: Props) {
     price: '',
     discountPrice: ''
   })
+
+  const { addToCart } = useCartStore((state) => state)
 
   const selectSize = (size: Size) => {
     const newPrice = parseFloat(cartItem.price) - parseFloat(cartItem.size.price) + parseFloat(size.price)
@@ -52,6 +55,20 @@ export default function MenuModal({ onClick, productId }: Props) {
       const newPrice = parseFloat(cartItem.price) + parseFloat(additive.price)
       setCartItem({ ...cartItem, price: newPrice.toFixed(2), discountPrice: newDiscountPrice.toFixed(2), extras: [...cartItem.extras, additive] })
     }
+  }
+  const handleAddToCartButton = () => {
+    const { id, name, category, size, extras, price, discountPrice } = cartItem
+    const item: TCartItem = {
+      id,
+      name,
+      category,
+      size: size.size,
+      extras: extras.map((a) => a.name),
+      price,
+      discountPrice
+    }
+    addToCart(item)
+    onClick()
   }
 
   const locale = useLocale()
@@ -130,7 +147,7 @@ export default function MenuModal({ onClick, productId }: Props) {
                   <h3>${cartItem.price}</h3>
                   <h3>${cartItem.discountPrice}</h3>
                 </div>
-                <button onClick={onClick} className="border py-2.5 max-w-[438px] w-full rounded-[100px] cursor-pointer action">{t.addToCart}</button>
+                <button onClick={handleAddToCartButton} className="border py-2.5 max-w-[438px] w-full rounded-[100px] cursor-pointer action">{t.addToCart}</button>
               </div>
             </>
         }

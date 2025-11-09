@@ -3,7 +3,7 @@ import type { Additive, Size, Sizes } from "./product";
 export interface TCartItem {
   id: number;
   name: string;
-  categoty: string;
+  category: string;
   size: string;
   extras: string[];
   price: string;
