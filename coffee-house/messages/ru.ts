@@ -71,7 +71,8 @@ export const ru: LanguagesObjType = {
     smthWentWrongTryAgain: "Что-то пошло не так. Пожалуйста, попробуйте снова",
   },
   auth: {
-    placeholder: "Подсказка ",
+    placeholder: "Подсказка",
+    registration: "Регистрация",
     signIn: "Войти",
     login: "Логин",
     password: "Пароль",
@@ -88,14 +89,20 @@ export const ru: LanguagesObjType = {
     link: "Перейти на главную",
   },
   validations: {
-    invalid: 'Неверный логин или пароль',
+    invalid: "Неверный логин или пароль",
     loginRequired: "Введите логин",
     passwordRequired: "Введите пароль",
+    cityRequired: "Введите город",
+    streetRequired: "Введите улицу",
+    houseRequired: "Введите номер дома",
+    paymentRequired: "Выберите метод оплаты",
+    confirmPasswordRequired: "Подтвердите пароль",
     login:
       "Логин должен содержать минимум 3 символа, начинаться с буквы и содержать только латинские буквы и цифры",
     password:
       "Пароль должен содержать минимум 6 символов и хотя бы один специальный символ (!@#$%^&*=)",
     passwordsMustMatch: "Пароли должны совпадать",
+    house: "Номер дома должен быть положительным числом",
   },
   errors: {
     readError: "Hе удалось загрузить данные",

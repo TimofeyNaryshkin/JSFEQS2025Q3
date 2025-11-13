@@ -1,3 +1,5 @@
+export type PaymentMethod = 'cash' | 'card'
+
 export interface RegistrationData {
   login: string;
   password: string;
@@ -5,7 +7,7 @@ export interface RegistrationData {
   city: string;
   street: string;
   houseNumber: number;
-  paymentMethod: string;
+  paymentMethod: PaymentMethod;
 }
 
 export interface LoginData {

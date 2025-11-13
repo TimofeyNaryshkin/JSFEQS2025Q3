@@ -8,6 +8,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Loader from '@/components/ui/Loader'
 import useUserStore from '@/store/userStore'
+import AuthInput from '@/components/ui/AuthInput'
 
 interface Props {
   localeText: Pick<LanguagesObjType, 'auth' | 'validations'>
@@ -46,22 +47,25 @@ export default function SignInForm({ localeText: { auth, validations } }: Props)
 
   return (
     <form onSubmit={handleSubmit(onSumit)} className='flex flex-col max-w-[400px] mx-auto' >
-      <label className='medium self-start'>{auth.login}</label>
-      <input {...register('login', {
-        required: validations.loginRequired,
-        pattern: { value: VALIDATION_RULES.loginPattern, message: validations.login }
-      })}
-        className={inputStyle}
-        placeholder={auth.placeholder} />
-      <p className="text-sm text-red-400">{errors.login?.message}</p>
-      <label className='medium mt-6'>{auth.password}</label>
-      <input type='password' {...register('password', {
-        required: validations.passwordRequired,
-        pattern: { value: VALIDATION_RULES.passwordPattern, message: validations.password }
-      })}
-        className={inputStyle}
-        placeholder={auth.placeholder} />
-      <p className="text-sm text-red-400">{errors.password?.message}</p>
+      <AuthInput
+        label={auth.login}
+        placeholder={auth.placeholder}
+        message={errors.login?.message}
+        register={register('login', {
+          required: validations.loginRequired,
+          pattern: { value: VALIDATION_RULES.loginPattern, message: validations.login }
+        })}
+      />
+      <AuthInput
+        label={auth.password}
+        placeholder={auth.placeholder}
+        type='password'
+        message={errors.password?.message}
+        register={register('password', {
+          required: validations.passwordRequired,
+          pattern: { value: VALIDATION_RULES.passwordPattern, message: validations.password }
+        })}
+      />
       <input type='submit' value={auth.signIn} className='action self-center mt-10 py-2.5 w-[200px] rounded-[100px] border border-(--color-border-second) cursor-pointer disabled:opacity-50 disabled:pointer-events-none' />
       <p className="text-center mt-5 text-red-400">{error && validations.invalid}</p>
     </form >

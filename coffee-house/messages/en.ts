@@ -70,6 +70,7 @@ export const en = {
   },
   auth: {
     placeholder: "Placeholder",
+    registration: "Registration",
     signIn: "Sign In",
     login: "Login",
     password: "Password",
@@ -86,14 +87,20 @@ export const en = {
     link: "Go to Main",
   },
   validations: {
-    invalid: 'Incorrect login or password',
+    invalid: "Incorrect login or password",
     loginRequired: "Please enter your login",
     passwordRequired: "Please enter your password",
+    cityRequired: "Please select your city",
+    streetRequired: "Please select your street",
+    houseRequired: "Please enter your house number",
+    paymentRequired: "Please choose your payment method",
+    confirmPasswordRequired: "Please comfirm your password",
     login:
       "Login must be at least 3 characters, start with a letter, and contain only letters and numbers",
     password:
       "Password must be at least 6 characters and contain at least one special character (!@#$%^&*=)",
     passwordsMustMatch: "Passwords must match",
+    house: 'House number must be a positive number'
   },
   errors: {
     readError: "Failed to load data",
