@@ -40,8 +40,6 @@ export default function Cart({ localeText: { cartPage, basic } }: Props) {
             :
             <h3>${totalPrice.original.toFixed(2)}</h3>
           }
-
-
         </div>
       </div>
       <div className="ml-12">
@@ -56,7 +54,6 @@ export default function Cart({ localeText: { cartPage, basic } }: Props) {
           </div>
         </>}
       </div>
-
       <div className="flex justify-center gap-10 mt-10">
         {isAuth
           ? <button className={buttonStyle}>{basic?.confirm}</button >

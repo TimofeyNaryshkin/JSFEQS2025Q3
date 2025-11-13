@@ -8,10 +8,11 @@ import translate from "@/i18n/langSwitcher";
 import CartIcon from "./CartIcon";
 import LocaleSwitcher from "@/components/ui/LocaleSwitcher";
 import Wrapper from "../Wrapper";
+import MobileNav from "./MobileNav";
 
 export default async function Header() {
   const locale = await getLocale()
-  const { mainPage, nav } = translate(locale)
+  const { mainPage, nav, basic } = translate(locale)
 
   const linkStyle = "flex items-center gap-2 relative transition-colors after:absolute after:top-[24.5px] after:left-0 after:h-0.5 after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"
 
@@ -26,6 +27,7 @@ export default async function Header() {
           <LocaleSwitcher />
           <BurgerIcon />
         </div>
+        <MobileNav localeText={{...nav, ...basic, ...mainPage}} />
       </Wrapper>
     </header>
   )
