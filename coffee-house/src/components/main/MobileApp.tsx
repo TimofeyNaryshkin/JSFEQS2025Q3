@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import Wrapper from "../layout/Wrapper"
 
 interface Props {
   localeText: {
@@ -17,8 +18,8 @@ export default function MobileApp({ localeText: t }: Props) {
 
   return (
     <section id="mobile-app" className="mb-[100px]">
-      <div className="wrapper">
-        <div className="flex items-center justify-between">
+      <Wrapper>
+        <div className="flex flex-col items-center justify-between xl:flex-row">
           <div className="max-w-[630px]">
             <h2><i>{t.mobileAppHeadingAccent}</i>{t.mobileAppHeading}</h2>
             <p className="medium my-10">{t.mobileAppText}</p>
@@ -43,7 +44,7 @@ export default function MobileApp({ localeText: t }: Props) {
             <Image src='/img/mobile-screens.png' alt="mobile app image" fill />
           </div>
         </div>
-      </div>
+      </Wrapper>
     </section >
   )
 }

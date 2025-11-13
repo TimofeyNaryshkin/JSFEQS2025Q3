@@ -15,7 +15,7 @@ export default function Nav({ localeText: t }: Props) {
 
   return (
     <nav>
-      <ul className="flex gap-10">
+      <ul className="hidden lg:flex gap-9">
         <li>
           <Link href='/#favorite' className={linkStyle}>{t.favCoffee}</Link>
         </li>

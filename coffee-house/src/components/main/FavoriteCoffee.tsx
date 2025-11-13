@@ -2,6 +2,7 @@ import { favoriteProductsService } from "@/services/product-service"
 import { Suspense } from "react"
 import MySwiper from "../ui/MySwiper"
 import Loader from "../ui/Loader"
+import Wrapper from "../layout/Wrapper"
 
 interface Props {
   localeText: {
@@ -16,7 +17,7 @@ export default function FavoriteCoffee({ localeText: t }: Props) {
 
   return (
     <section id="favorite">
-      <div className="wrapper">
+      <Wrapper>
         <h2 className="text-center mb-10">
           {t.chooseCoffeeHeading1}
           <i>{t.chooseCoffeeHeadingAccent}</i>
@@ -27,7 +28,7 @@ export default function FavoriteCoffee({ localeText: t }: Props) {
             <MySwiper items={favoriteProducts} />
           </Suspense>
         </div>
-      </div>
+      </Wrapper>
     </section>
   )
 }

@@ -1,4 +1,5 @@
 import Cart from "@/components/cart/Cart";
+import Wrapper from "@/components/layout/Wrapper";
 import translate from "@/i18n/langSwitcher";
 import { getLocale } from "next-intl/server";
 
@@ -9,10 +10,10 @@ export default async function CartPage() {
 
   return (
     <section className="pt-5 pb-[100px]">
-      <div className="wrapper">
+      <Wrapper>
         <h2 className="text-center">{cartPage.cartHeading}</h2>
         <Cart localeText={{ cartPage, basic }} />
-      </div>
+      </Wrapper>
     </section>
   );
 }

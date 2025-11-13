@@ -1,3 +1,4 @@
+import Wrapper from "@/components/layout/Wrapper";
 import Menu from "@/components/menu/Menu";
 import Loader from "@/components/ui/Loader";
 import { productsService } from "@/services/product-service";
@@ -8,11 +9,11 @@ export default function MenuPage() {
 
   return (
     <section className="mb-[100px] min-h-[300px] flex items-center justify-center">
-      <div className="wrapper">
+      <Wrapper>
         <Suspense fallback={<Loader />}>
           <Menu products={products} />
         </Suspense>
-      </div>
+      </Wrapper>
     </section>
   );
 }

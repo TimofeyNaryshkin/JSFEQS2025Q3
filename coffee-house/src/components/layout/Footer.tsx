@@ -2,6 +2,7 @@ import translate from "@/i18n/langSwitcher"
 import { Clock, Facebook, Instagram, MapPin, Phone, Twitter } from "lucide-react"
 import { getLocale } from "next-intl/server"
 import Link from "next/link"
+import Wrapper from "./Wrapper"
 
 export default async function Footer() {
   const locale = await getLocale()
@@ -14,8 +15,8 @@ export default async function Footer() {
   return (
     <footer className="footer mb-10">
       <section id="contacts" >
-        <div className="wrapper">
-          <div className="contacts-bg flex p-25 gap-25 rounded-[40px] justify-start items-center">
+        <Wrapper>
+          <div className="contacts-bg flex flex-col p-25 gap-25 rounded-[40px] justify-start xl:flex-row xl:items-center">
             <div className="flex flex-col max-w-[530px] gap-10">
               <h2>{t.footerHeading} <i>{t.footerHeadingAccent}</i></h2>
               <div className="flex justify-between max-w-[204px]">
@@ -52,7 +53,7 @@ export default async function Footer() {
               </Link>
             </div>
           </div>
-        </div>
+        </Wrapper>
       </section>
     </footer>
   )
