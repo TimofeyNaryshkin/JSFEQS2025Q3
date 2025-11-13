@@ -6,6 +6,7 @@ import BurgerIcon from "./BurgerIcon";
 import { getLocale } from "next-intl/server";
 import translate from "@/i18n/langSwitcher";
 import CartIcon from "./CartIcon";
+import LocaleSwitcher from "@/components/ui/LocaleSwitcher";
 
 export default async function Header() {
   const locale = await getLocale()
@@ -21,6 +22,7 @@ export default async function Header() {
         <div className="flex gap-8 items-center">
           <CartIcon className={linkStyle} />
           <Link href='/menu' className={linkStyle}>{mainPage.menu}<Coffee width={20} height={20} /></Link>
+          <LocaleSwitcher/>
           <BurgerIcon />
         </div>
       </div>

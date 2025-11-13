@@ -11,7 +11,7 @@ export default async function CartPage() {
     <section className="pt-5 pb-[100px]">
       <div className="wrapper">
         <h2 className="text-center">{cartPage.cartHeading}</h2>
-        <Cart localeText={{ cartPage, basic }}/>
+        <Cart localeText={{ cartPage, basic }} />
       </div>
     </section>
   );

@@ -14,7 +14,7 @@ interface Props {
 export default function Menu({ products }: Props) {
   const categories: Category[] = ['coffee', 'tea', 'dessert']
   const [category, setCategory] = useState<Category>(categories[0]);
-  
+
   const menuProducts = use(products)
 
   const locale = useLocale()

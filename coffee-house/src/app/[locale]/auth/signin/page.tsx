@@ -10,7 +10,7 @@ export default async function SignInPage() {
     <section className="mt-5 mb-25">
       <div className="wrapper">
         <h2 className="text-center mb-10">{auth.signIn}</h2>
-        <SignInForm localeText={{auth, validations}}/>
+        <SignInForm localeText={{ auth, validations }} />
       </div>
     </section>
   )
